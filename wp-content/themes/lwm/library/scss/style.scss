@@ -1,0 +1,27 @@
+/*
+    Document   : style
+    Created on : Sep 12, 2014, 4:19:48 PM
+    Author     : user
+    Description:
+    Purpose of the stylesheet follows.
+*/
+
+/*
+    TODO customize this sample style
+    Syntax recommendation http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html
+*/
+
+@import "bourbon/bourbon";
+
+@import "neat/neat";
+
+@import "bitters/bitters";
+
+@import "normalize";
+
+html { 
+    font-size: em(16); font-family: Arial, sans-serif;
+}
+
+
+

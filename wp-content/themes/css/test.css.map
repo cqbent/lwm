@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,EAAG;EACD,SAAS,EAAE,GAAG",
+"sources": ["../lwm-make/test.scss"],
+"names": [],
+"file": "test.css"
+}

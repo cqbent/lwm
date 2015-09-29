@@ -1,0 +1,278 @@
+/**
+ * Theme Name:  Make (child theme)
+ * Theme URI:   https://thethemefoundry.com/make/
+ * Author:      The Theme Foundry
+ * Author URI:  https://thethemefoundry.com
+ * Description: Create your website without touching a line of code. Make's flexible customization features and a powerful drag and drop page builder make designing your site fun and easy. Build almost anything: a simple portfolio or photography site, an ecommerce business site, a minimalist blog, or even a professional magazine. You'll start by customizing your background, layouts, fonts, colors, and logo. Next, add and organize your content using the drag and drop page builder. Add a photo, a video, a gallery, or even a slider to any page on your website. Make is responsive, so your website will naturally look great on phones, tablets, and desktop screens. It's also fully compatible with popular plugins like WooCommerce, Gravity Forms, Contact Form 7, Jetpack, and WP PageNavi.
+ * Version:     1.1.0
+ * License:     GNU General Public License v2 or later
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ * Template: make
+ * Text Domain: make
+ * Domain Path: /languages/
+ * Tags:        black, blue, green, gray, orange, red, white, yellow, dark, light, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, fixed-layout, fluid-layout, responsive-layout, buddypress, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, flexible-header, full-width-template, sticky-post, theme-options, threaded-comments, translation-ready, photoblogging
+ *
+ * Make WordPress Theme, Copyright 2015 The Theme Foundry
+ * Make is distributed under the terms of the GNU GPL
+ */
+/*
+ * Add your custom styles below.
+ * This version of the Make child theme is only compatible with Make 1.6.0 and above.
+ */
+body {
+  font-family: "Gotham A", "Gotham B";
+  font-style: normal;
+  font-weight: 400; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Gotham A", "Gotham B";
+  font-weight: 700; }
+
+.site-header {
+  margin: 0 auto;
+  float: none;
+  z-index: 100;
+  background-image: url(images/header_image_b.jpg);
+  background-size: cover;
+  position: relative; }
+  .site-header .site-header-main {
+    background: none;
+    padding: 0; }
+    .site-header .site-header-main .container {
+      position: relative;
+      height: 450px; }
+  .site-header .custom-logo {
+    background-color: rgba(255, 255, 255, 0.5);
+    background-size: 85%;
+    padding: 20px;
+    width: 230px; }
+  .site-header .site-navigation {
+    position: absolute;
+    bottom: -30px;
+    color: #fff;
+    border: none;
+    padding: 0 100px;
+    font-size: 1.2rem; }
+    .site-header .site-navigation .nav-menu {
+      border: none;
+      display: table;
+      width: 100%; }
+    .site-header .site-navigation li {
+      text-align: center;
+      width: 25%;
+      font-size: 18px;
+      display: table-cell;
+      vertical-align: bottom; }
+      .site-header .site-navigation li a {
+        background-color: #344F74;
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 18px;
+        font-weight: 700; }
+      .site-header .site-navigation li .description {
+        background-color: #344F74;
+        font-style: italic;
+        display: none;
+        padding: 1.1rem 1.6rem;
+        font-family: "Times New Roman", Times, "EB Garamond", serif; }
+      .site-header .site-navigation li:hover .description {
+        display: block; }
+
+.entry-content {
+  color: #666; }
+  .entry-content .builder-text-section-title {
+    font-size: 4em;
+    font-weight: 400;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 1rem; }
+  .entry-content p cite {
+    font-family: "Times New Roman", Times, "EB Garamond", serif;
+    text-align: center;
+    font-size: 2em;
+    color: #344F74;
+    line-height: normal; }
+
+.site-footer {
+  background-color: #344F74;
+  color: #fff;
+  padding: 2rem 0;
+  /*
+  .columns-3 {
+    .widget-area {
+      margin-right: 3%;
+    }
+    .footer-1 {
+      width: 22%;
+    }
+    .footer-2 {
+      width: 32%;
+    }
+    .footer-3 {
+      width: 40%;
+      margin-right: 0;
+    }
+  }
+  */ }
+  .site-footer h4 {
+    margin: 0;
+    color: #0098D1;
+    font-size: 1em; }
+  .site-footer p {
+    margin: 0; }
+  .site-footer .widget {
+    font-size: .6em; }
+  .site-footer .location, .site-footer .contact {
+    float: left;
+    width: 50%; }
+  .site-footer .signup-form {
+    float: left;
+    border: 1px #fff solid;
+    padding: 5px;
+    width: 70%; }
+    .site-footer .signup-form input[type=text], .site-footer .signup-form input[type=email] {
+      background: none;
+      border: 1px #000 solid;
+      color: #fff; }
+    .site-footer .signup-form .first-name, .site-footer .signup-form .last-name, .site-footer .signup-form .email {
+      display: block;
+      float: left;
+      width: 50%; }
+    .site-footer .signup-form .last-name {
+      padding-left: 10px; }
+    .site-footer .signup-form input[type=submit] {
+      margin-left: 10px;
+      padding: 5px 20px; }
+  .site-footer img.ria-logo {
+    float: right;
+    width: 60px; }
+  .site-footer .social-links .fa {
+    font-size: 18px;
+    color: #08b092; }
+
+.home .site-header {
+  position: absolute;
+  background: none; }
+.home #site-content #builder-section-1442853908968 {
+  display: none; }
+.home #site-content .news-list {
+  margin-top: 2em; }
+  .home #site-content .news-list .news-item {
+    text-align: center; }
+    .home #site-content .news-list .news-item h4, .home #site-content .news-list .news-item h4 a {
+      font-size: 1.2em;
+      font-weight: normal;
+      text-transform: uppercase; }
+    .home #site-content .news-list .news-item .excerpt {
+      font-size: .8em; }
+    .home #site-content .news-list .news-item .date {
+      font-size: .75em;
+      text-transform: uppercase; }
+    .home #site-content .news-list .news-item:first-child:after {
+      content: "";
+      display: block;
+      width: 50%;
+      height: 1px;
+      border-bottom: 1px #549534 solid;
+      margin: 0 auto 20px auto; }
+
+.category-list, .people-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  clear: both; }
+  .category-list li, .people-list li {
+    float: left;
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-right: 20px;
+    cursor: pointer;
+    width: 25%;
+    display: table; }
+    .category-list li div, .people-list li div {
+      display: table-cell;
+      vertical-align: middle;
+      box-sizing: border-box;
+      position: relative; }
+      .category-list li div.advisors, .people-list li div.advisors {
+        border-color: #008aaa;
+        color: #008aaa; }
+        .category-list li div.advisors:hover, .category-list li div.advisors.active, .people-list li div.advisors:hover, .people-list li div.advisors.active {
+          background-color: #008aaa;
+          color: #fff; }
+          .category-list li div.advisors:hover:before, .category-list li div.advisors.active:before, .people-list li div.advisors:hover:before, .people-list li div.advisors.active:before {
+            background: rgba(8, 176, 147, 0.5); }
+      .category-list li div.investment-team, .people-list li div.investment-team {
+        border-color: #00483A;
+        color: #00483A; }
+        .category-list li div.investment-team:hover, .category-list li div.investment-team.active, .people-list li div.investment-team:hover, .people-list li div.investment-team.active {
+          background-color: #00483A;
+          color: #fff; }
+          .category-list li div.investment-team:hover:before, .category-list li div.investment-team.active:before, .people-list li div.investment-team:hover:before, .people-list li div.investment-team.active:before {
+            background: rgba(0, 72, 58, 0.5); }
+      .category-list li div.client-service-team, .people-list li div.client-service-team {
+        border-color: #08b092;
+        color: #08b092; }
+        .category-list li div.client-service-team:hover, .category-list li div.client-service-team.active, .people-list li div.client-service-team:hover, .people-list li div.client-service-team.active {
+          background-color: #08b092;
+          color: #fff; }
+          .category-list li div.client-service-team:hover:before, .category-list li div.client-service-team.active:before, .people-list li div.client-service-team:hover:before, .people-list li div.client-service-team.active:before {
+            background: rgba(84, 149, 152, 0.5); }
+
+.category-list {
+  font-size: 1.117em;
+  text-transform: uppercase;
+  line-height: 1.2em; }
+  .category-list li div {
+    border: 4px #549534 solid;
+    padding: 5px 20px;
+    height: 62px;
+    text-align: center;
+    color: #549534; }
+    .category-list li div:hover, .category-list li div.active {
+      color: #fff;
+      background-color: #549534; }
+
+.people-list {
+  padding-top: 20px; }
+  .people-list li .list-image img {
+    display: block;
+    width: 100%; }
+  .people-list li .list-image span {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: #fff;
+    font-weight: bold;
+    font-size: .88em;
+    display: none; }
+  .people-list li .list-image:hover:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(8, 176, 146, 0.5); }
+  .people-list li .list-image:hover span {
+    display: block; }
+  .people-list.filter li .list-image {
+    visibility: hidden; }
+    .people-list.filter li .list-image.active {
+      visibility: visible; }
+
+@media all and (min-width: 800px) {
+  .site-footer .columns-3 .widget-area {
+    margin-right: 3%; }
+  .site-footer .columns-3 .footer-1 {
+    width: 25%; }
+  .site-footer .columns-3 .footer-2 {
+    width: 32%; }
+  .site-footer .columns-3 .footer-3 {
+    width: 37%;
+    margin-right: 0; } }
+
+/*# sourceMappingURL=style.css.map */
