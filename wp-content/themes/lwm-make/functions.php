@@ -129,28 +129,11 @@ add_shortcode( 'people_grid', 'display_people_grid' );
 function display_news_block() {
     $args = array(
         'numberposts'=>2,
-        'category_name'=>'News',
+        'category_name'=>'news',
         'order_by'=>'date',
         'order'=> 'DESC',
         'post_status'=>'publish'
     );
-    /*$n_query = new WP_Query( $args );
-    if ( $n_query->have_posts() ) {
-        $output = '<div class="news-list">'
-        while ( $n_query->have_posts() ) {
-            $n_query->the_post();
-            $output .= '
-                <div class="news-item">
-                    <h4>'.get_the_title().'</h4>
-
-
-                </div>';
-        }
-        $output .= '</div>';
-        wp_reset_postdata();
-        }
-    }
-    */
 
     $fpresult = get_posts($args);
     if ($fpresult) {
@@ -159,7 +142,7 @@ function display_news_block() {
             setup_postdata($post);
             $content .= '
                 <div class="news-item">
-                    <h4><a href="'.get_the_permalink($post-ID).'">'.get_the_title($post->ID).'</a></h4>
+                    <h4><a href="'.get_the_permalink($post->ID).'">'.get_the_title($post->ID).'</a></h4>
                     <p class="excerpt">'.get_the_excerpt($post->ID).'</p>
                     <p class="date">'.get_the_date('F d, Y',$post->ID).'</p>
                 </div>';
@@ -169,3 +152,29 @@ function display_news_block() {
     return $content;
 }
 add_shortcode( 'news_block', 'display_news_block' );
+
+function display_event_block() {
+    $args = array(
+        'numberposts'=>2,
+        'category_name'=>'events',
+        'order_by'=>'date',
+        'order'=> 'DESC',
+        'post_status'=>'publish'
+    );
+
+    $fpresult = get_posts($args);
+    if ($fpresult) {
+        $content = '';
+        foreach($fpresult as $post) {
+            setup_postdata($post);
+            $content .= '
+                <div class="event-item">
+                    <h4><a href="'.get_the_permalink($post->ID).'">'.get_the_title($post->ID).'</a></h4>
+                    <p class="excerpt">'.get_the_content().'</p>
+                </div>';
+        }
+        //$content .= '</div>';
+    }
+    return $content;
+}
+add_shortcode( 'event_block', 'display_event_block' );

@@ -47,6 +47,9 @@ h1, h2, h3, h4, h5, h6 {
   font-family: $gotham;
   font-weight: 700;
 }
+h3 {
+  font-size: 2rem;
+}
 .site-header {
   margin: 0 auto;
   float: none;
@@ -108,6 +111,12 @@ h1, h2, h3, h4, h5, h6 {
       }
     }
 
+  }
+}
+
+.site-content {
+  .site-main {
+    margin-top: 3em;
   }
 }
 
@@ -202,7 +211,6 @@ h1, h2, h3, h4, h5, h6 {
       color: $light-green;
     }
   }
-
 }
 
 // HOME PAGE SECTION
@@ -213,7 +221,45 @@ h1, h2, h3, h4, h5, h6 {
   }
   #site-content {
     #builder-section-1442853908968 {
-      display: none;
+      //display: none;
+      .builder-text-column  {
+        width: 50%;
+        margin: 0;
+        padding: 0;
+        .box {
+          float: left;
+          width: 50%;
+          box-sizing: border-box;
+          color: white;
+          padding: 10px 20px;
+          font-size: 10px;
+          background-color: $text-gray;
+          height: 140px;
+          h4 {
+            font-size: 15px;
+          }
+          &.testimonial {
+            font-size: 20px;
+            font-family: $serif;
+            text-align: center;
+          }
+          &.image {
+            padding: 0;
+            img {
+              width: 100%;
+            }
+          }
+          &.blue {
+            background-color: $blue;
+          }
+          &.green {
+            background-color: $green;
+          }
+        }
+      }
+    }
+    .site-main {
+      margin-top: 0;
     }
     .box {
 

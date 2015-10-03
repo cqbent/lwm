@@ -28,6 +28,9 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Gotham A", "Gotham B";
   font-weight: 700; }
 
+h3 {
+  font-size: 2rem; }
+
 .site-header {
   margin: 0 auto;
   float: none;
@@ -77,6 +80,9 @@ h1, h2, h3, h4, h5, h6 {
         font-family: "Times New Roman", Times, "EB Garamond", serif; }
       .site-header .site-navigation li:hover .description {
         display: block; }
+
+.site-content .site-main {
+  margin-top: 3em; }
 
 .entry-content {
   color: #666; }
@@ -153,8 +159,35 @@ h1, h2, h3, h4, h5, h6 {
 .home .site-header {
   position: absolute;
   background: none; }
-.home #site-content #builder-section-1442853908968 {
-  display: none; }
+.home #site-content #builder-section-1442853908968 .builder-text-column {
+  width: 50%;
+  margin: 0;
+  padding: 0; }
+  .home #site-content #builder-section-1442853908968 .builder-text-column .box {
+    float: left;
+    width: 50%;
+    box-sizing: border-box;
+    color: white;
+    padding: 10px 20px;
+    font-size: 10px;
+    background-color: #666;
+    height: 140px; }
+    .home #site-content #builder-section-1442853908968 .builder-text-column .box h4 {
+      font-size: 15px; }
+    .home #site-content #builder-section-1442853908968 .builder-text-column .box.testimonial {
+      font-size: 20px;
+      font-family: "Times New Roman", Times, "EB Garamond", serif;
+      text-align: center; }
+    .home #site-content #builder-section-1442853908968 .builder-text-column .box.image {
+      padding: 0; }
+      .home #site-content #builder-section-1442853908968 .builder-text-column .box.image img {
+        width: 100%; }
+    .home #site-content #builder-section-1442853908968 .builder-text-column .box.blue {
+      background-color: #344F74; }
+    .home #site-content #builder-section-1442853908968 .builder-text-column .box.green {
+      background-color: #549534; }
+.home #site-content .site-main {
+  margin-top: 0; }
 .home #site-content .news-list {
   margin-top: 2em; }
   .home #site-content .news-list .news-item {
