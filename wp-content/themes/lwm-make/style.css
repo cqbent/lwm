@@ -77,7 +77,7 @@ h3 {
         font-style: italic;
         display: none;
         padding: 1.1rem 1.6rem;
-        font-family: "Times New Roman", Times, "EB Garamond", serif; }
+        font-family: "EB Garamond", "Times New Roman", Times, serif; }
       .site-header .site-navigation li:hover .description {
         display: block; }
 
@@ -93,7 +93,7 @@ h3 {
     text-transform: uppercase;
     margin-bottom: 1rem; }
   .entry-content p cite {
-    font-family: "Times New Roman", Times, "EB Garamond", serif;
+    font-family: "EB Garamond", "Times New Roman", Times, serif;
     text-align: center;
     font-size: 2em;
     color: #344F74;
@@ -170,13 +170,35 @@ h3 {
     color: white;
     padding: 10px 20px;
     font-size: 10px;
-    background-color: #666;
-    height: 140px; }
+    height: 140px;
+    position: relative;
+    background-color: #666; }
+    .home #site-content #builder-section-1442853908968 .builder-text-column .box h4, .home #site-content #builder-section-1442853908968 .builder-text-column .box p, .home #site-content #builder-section-1442853908968 .builder-text-column .box div {
+      position: relative;
+      z-index: 1; }
+    .home #site-content #builder-section-1442853908968 .builder-text-column .box a {
+      color: #fff; }
     .home #site-content #builder-section-1442853908968 .builder-text-column .box h4 {
-      font-size: 15px; }
+      font-size: 15px;
+      font-weight: normal;
+      margin-bottom: 0; }
+      .home #site-content #builder-section-1442853908968 .builder-text-column .box h4 a {
+        font-weight: normal; }
+    .home #site-content #builder-section-1442853908968 .builder-text-column .box.featured-event {
+      background-image: url(images/box_event_bk.jpg); }
+      .home #site-content #builder-section-1442853908968 .builder-text-column .box.featured-event:before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(8, 176, 146, 0.5);
+        z-index: 1; }
     .home #site-content #builder-section-1442853908968 .builder-text-column .box.testimonial {
       font-size: 20px;
-      font-family: "Times New Roman", Times, "EB Garamond", serif;
+      font-family: "EB Garamond", "Times New Roman", Times, serif;
       text-align: center; }
     .home #site-content #builder-section-1442853908968 .builder-text-column .box.image {
       padding: 0; }

@@ -70,6 +70,8 @@ function add_description_to_menu($item_output, $item, $depth, $args) {
 }
 add_filter('walker_nav_menu_start_el', 'add_description_to_menu', 10, 4);
 
+
+
 /*
  * PEOPLE SECTION
  * display all people in grid format
@@ -170,7 +172,7 @@ function display_event_block() {
             $content .= '
                 <div class="event-item">
                     <h4><a href="'.get_the_permalink($post->ID).'">'.get_the_title($post->ID).'</a></h4>
-                    <p class="excerpt">'.get_the_content().'</p>
+                    <div class="excerpt">'.nl2br(get_the_content()).'</div>
                 </div>';
         }
         //$content .= '</div>';
@@ -178,3 +180,4 @@ function display_event_block() {
     return $content;
 }
 add_shortcode( 'event_block', 'display_event_block' );
+

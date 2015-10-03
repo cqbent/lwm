@@ -33,7 +33,21 @@ $white: #fff;
 
 // font styling
 $gotham: "Gotham A", "Gotham B";
-$serif: 'Times New Roman', Times, 'EB Garamond', serif;
+$serif: 'EB Garamond', 'Times New Roman', Times, serif;
+
+// mixins
+// background shade
+@mixin background-shade($hex, $opacity) {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba($hex, $opacity);
+  z-index: 1;
+}
 
 html {
 
@@ -233,10 +247,29 @@ h3 {
           color: white;
           padding: 10px 20px;
           font-size: 10px;
-          background-color: $text-gray;
           height: 140px;
+          position: relative;
+          background-color: $text-gray;
+          h4, p, div {
+            position: relative;
+            z-index: 1;
+          }
+          a {
+            color: $white;
+          }
           h4 {
             font-size: 15px;
+            font-weight: normal;
+            margin-bottom: 0;
+            a {
+              font-weight: normal;
+            }
+          }
+          &.featured-event {
+            background-image: url(images/box_event_bk.jpg);
+            &:before {
+              @include background-shade(#08b092, .5);
+            }
           }
           &.testimonial {
             font-size: 20px;
