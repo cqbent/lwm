@@ -31,9 +31,35 @@ $aqua: #008aaa;
 $text-gray: #666;
 $white: #fff;
 
+// eb garamond fonts
+@font-face {
+  font-family: 'eb_garamond';
+  src: url('fonts/ebgaramond12-regular-webfont.eot');
+  src: url('fonts/ebgaramond12-regular-webfont.eot?#iefix') format('embedded-opentype'),
+  url('fonts/ebgaramond12-regular-webfont.woff2') format('woff2'),
+  url('fonts/ebgaramond12-regular-webfont.woff') format('woff'),
+  url('fonts/ebgaramond12-regular-webfont.ttf') format('truetype'),
+  url('fonts/ebgaramond12-regular-webfont.svg#eb_garamond12_regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'eb_garamond';
+  src: url('fonts/ebgaramond12-italic-webfont.eot');
+  src: url('fonts/ebgaramond12-italic-webfont.eot?#iefix') format('embedded-opentype'),
+  url('fonts/ebgaramond12-italic-webfont.woff2') format('woff2'),
+  url('fonts/ebgaramond12-italic-webfont.woff') format('woff'),
+  url('fonts/ebgaramond12-italic-webfont.ttf') format('truetype'),
+  url('fonts/ebgaramond12-italic-webfont.svg#eb_garamond12_italic') format('svg');
+  font-weight: normal;
+  font-style: italic;
+}
+
+
 // font styling
 $gotham: "Gotham A", "Gotham B";
-$serif: 'EB Garamond', 'Times New Roman', Times, serif;
+$serif: 'eb_garamond', 'Times New Roman', Times, serif;
 
 // mixins
 // background shade
@@ -47,6 +73,14 @@ $serif: 'EB Garamond', 'Times New Roman', Times, serif;
   right: 0;
   background: rgba($hex, $opacity);
   z-index: 1;
+}
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
 }
 
 html {
@@ -76,7 +110,7 @@ h3 {
     padding: 0;
     .container {
       position: relative;
-      height: 450px;
+      height: 425px;
     }
   }
   .custom-logo {
@@ -85,47 +119,7 @@ h3 {
     padding: 20px;
     width: 230px;
   }
-  .site-navigation {
-    position: absolute;
-    bottom: -30px;
-    color: $white;
-    border: none;
-    padding: 0 100px;
-    font-size: 1.2rem;
 
-    .nav-menu {
-      border: none;
-      display: table;
-      width: 100%;
-    }
-    li {
-      text-align: center;
-      width: 25%;
-      font-size: 18px;
-      display: table-cell;
-      vertical-align: bottom;
-      a {
-        background-color: $blue;
-        color: $white;
-        text-transform: uppercase;
-        font-size: 18px;
-        font-weight: 700;
-      }
-      .description {
-        background-color: $blue;
-        font-style: italic;
-        display: none;
-        padding: 1.1rem 1.6rem;
-        font-family: $serif;
-      }
-      &:hover {
-        .description {
-          display: block;
-        }
-      }
-    }
-
-  }
 }
 
 .site-content {
@@ -137,18 +131,19 @@ h3 {
 .entry-content {
   color: $text-gray;
   .builder-text-section-title {
-    font-size: 4em;
+    font-size: 1.875em;
     font-weight: 400;
     text-align: center;
     text-transform: uppercase;
     margin-bottom: 1rem;
+    color: $blue;
   }
   p {
     cite {
       font-family: $serif;
       text-align: center;
       font-size: 2em;
-      color: $blue;
+      color: $dark-green;
       line-height: normal;
     }
   }
@@ -234,12 +229,27 @@ h3 {
     background: none;
   }
   #site-content {
+    .builder-text-content {
+      font-size: .8375em;
+      text-align: center;
+      h3 {
+        font-size: 19px;
+        margin-bottom: 5px;
+      }
+      p {
+        font-size: 14px;
+      }
+    }
     #builder-section-1442853908968 {
       //display: none;
       .builder-text-column  {
-        width: 50%;
+        width: 100%;
         margin: 0;
         padding: 0;
+        &.builder-text-column-2 {
+          clear: both;
+          padding-top: 20px;
+        }
         .box {
           float: left;
           width: 50%;
@@ -267,8 +277,21 @@ h3 {
           }
           &.featured-event {
             background-image: url(images/box_event_bk.jpg);
+            text-align: left;
             &:before {
               @include background-shade(#08b092, .5);
+            }
+            button {
+              background-color: $dark-green;
+              font-size: 10px;
+              padding: 2px 7px;
+              text-transform: uppercase;
+              display: block;
+              border-radius: 0;
+              position: absolute;
+              bottom: 10px;
+              right: 20px;
+              z-index: 2;
             }
           }
           &.testimonial {
@@ -280,6 +303,7 @@ h3 {
             padding: 0;
             img {
               width: 100%;
+              height: 100%;
             }
           }
           &.blue {
@@ -289,6 +313,7 @@ h3 {
             background-color: $green;
           }
         }
+
       }
     }
     .site-main {
@@ -296,6 +321,26 @@ h3 {
     }
     .box {
 
+    }
+    .people-list {
+      padding: 20px 0 40px 0;
+      @include clearfix;
+      li {
+        display: block;
+        padding: 0;
+        overflow: hidden;
+        height: 170px;
+        width: 120px;
+        margin-right: 1px;
+        .list-image {
+          img {
+            display: block;
+            width: auto;
+            max-width: initial;
+            margin-left: -45%;
+          }
+        }
+      }
     }
     .news-list {
       margin-top: 2em;
@@ -458,7 +503,74 @@ h3 {
 
 }
 
+
 @media all and (min-width: 800px) {
+  .site-header {
+    .site-navigation {
+      position: absolute;
+      bottom: -30px;
+      color: $white;
+      border: none;
+      padding: 0 20px;
+      font-size: 1rem;
+      left: 0;
+      .nav-menu {
+        border: none;
+        display: table;
+        width: 100%;
+      }
+      li {
+        text-align: center;
+        width: 25%;
+        display: table-cell;
+        vertical-align: bottom;
+        a {
+          background-color: rgba($blue, .9);
+          color: $white;
+          text-transform: uppercase;
+          font-size: 16px;
+          font-weight: 700;
+          border-right: 1px $white solid;
+        }
+        &:last-child {
+          a {
+            border: none;
+          }
+
+        }
+        .description {
+          background-color: rgba($blue, .9);
+          font-style: italic;
+          display: none;
+          padding: 1.1rem 1.6rem;
+          font-family: $serif;
+        }
+        &:hover {
+          a {
+            background-color: rgba($green, .9);
+          }
+          .description {
+            display: block;
+            background-color: rgba($green, .9);
+          }
+        }
+      }
+
+    }
+  }
+  .home {
+    #site-content {
+      #builder-section-1442853908968 {
+        .builder-text-column {
+          width: 50%;
+          &.builder-text-column-2 {
+            clear: none;
+            padding-top: 0;
+          }
+        }
+      }
+    }
+  }
   .site-footer {
     .columns-3 {
       .widget-area {
@@ -473,6 +585,25 @@ h3 {
       .footer-3 {
         width: 37%;
         margin-right: 0;
+      }
+    }
+  }
+}
+
+@media all and (min-width: 960px) {
+  .site-header {
+    .site-header-main {
+      .container {
+        height: 450px;
+      }
+    }
+    .site-navigation {
+      font-size: 1.2rem;
+      li {
+        font-size: 18px;
+        a {
+          font-size: 20px;
+        }
       }
     }
   }

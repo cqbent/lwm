@@ -19,6 +19,18 @@
  * Add your custom styles below.
  * This version of the Make child theme is only compatible with Make 1.6.0 and above.
  */
+@font-face {
+  font-family: 'eb_garamond';
+  src: url("fonts/ebgaramond12-regular-webfont.eot");
+  src: url("fonts/ebgaramond12-regular-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/ebgaramond12-regular-webfont.woff2") format("woff2"), url("fonts/ebgaramond12-regular-webfont.woff") format("woff"), url("fonts/ebgaramond12-regular-webfont.ttf") format("truetype"), url("fonts/ebgaramond12-regular-webfont.svg#eb_garamond12_regular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'eb_garamond';
+  src: url("fonts/ebgaramond12-italic-webfont.eot");
+  src: url("fonts/ebgaramond12-italic-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/ebgaramond12-italic-webfont.woff2") format("woff2"), url("fonts/ebgaramond12-italic-webfont.woff") format("woff"), url("fonts/ebgaramond12-italic-webfont.ttf") format("truetype"), url("fonts/ebgaramond12-italic-webfont.svg#eb_garamond12_italic") format("svg");
+  font-weight: normal;
+  font-style: italic; }
 body {
   font-family: "Gotham A", "Gotham B";
   font-style: normal;
@@ -43,43 +55,12 @@ h3 {
     padding: 0; }
     .site-header .site-header-main .container {
       position: relative;
-      height: 450px; }
+      height: 425px; }
   .site-header .custom-logo {
     background-color: rgba(255, 255, 255, 0.5);
     background-size: 85%;
     padding: 20px;
     width: 230px; }
-  .site-header .site-navigation {
-    position: absolute;
-    bottom: -30px;
-    color: #fff;
-    border: none;
-    padding: 0 100px;
-    font-size: 1.2rem; }
-    .site-header .site-navigation .nav-menu {
-      border: none;
-      display: table;
-      width: 100%; }
-    .site-header .site-navigation li {
-      text-align: center;
-      width: 25%;
-      font-size: 18px;
-      display: table-cell;
-      vertical-align: bottom; }
-      .site-header .site-navigation li a {
-        background-color: #344F74;
-        color: #fff;
-        text-transform: uppercase;
-        font-size: 18px;
-        font-weight: 700; }
-      .site-header .site-navigation li .description {
-        background-color: #344F74;
-        font-style: italic;
-        display: none;
-        padding: 1.1rem 1.6rem;
-        font-family: "EB Garamond", "Times New Roman", Times, serif; }
-      .site-header .site-navigation li:hover .description {
-        display: block; }
 
 .site-content .site-main {
   margin-top: 3em; }
@@ -87,16 +68,17 @@ h3 {
 .entry-content {
   color: #666; }
   .entry-content .builder-text-section-title {
-    font-size: 4em;
+    font-size: 1.875em;
     font-weight: 400;
     text-align: center;
     text-transform: uppercase;
-    margin-bottom: 1rem; }
+    margin-bottom: 1rem;
+    color: #344F74; }
   .entry-content p cite {
-    font-family: "EB Garamond", "Times New Roman", Times, serif;
+    font-family: "eb_garamond", "Times New Roman", Times, serif;
     text-align: center;
     font-size: 2em;
-    color: #344F74;
+    color: #00483A;
     line-height: normal; }
 
 .site-footer {
@@ -159,10 +141,21 @@ h3 {
 .home .site-header {
   position: absolute;
   background: none; }
+.home #site-content .builder-text-content {
+  font-size: .8375em;
+  text-align: center; }
+  .home #site-content .builder-text-content h3 {
+    font-size: 19px;
+    margin-bottom: 5px; }
+  .home #site-content .builder-text-content p {
+    font-size: 14px; }
 .home #site-content #builder-section-1442853908968 .builder-text-column {
-  width: 50%;
+  width: 100%;
   margin: 0;
   padding: 0; }
+  .home #site-content #builder-section-1442853908968 .builder-text-column.builder-text-column-2 {
+    clear: both;
+    padding-top: 20px; }
   .home #site-content #builder-section-1442853908968 .builder-text-column .box {
     float: left;
     width: 50%;
@@ -185,7 +178,8 @@ h3 {
       .home #site-content #builder-section-1442853908968 .builder-text-column .box h4 a {
         font-weight: normal; }
     .home #site-content #builder-section-1442853908968 .builder-text-column .box.featured-event {
-      background-image: url(images/box_event_bk.jpg); }
+      background-image: url(images/box_event_bk.jpg);
+      text-align: left; }
       .home #site-content #builder-section-1442853908968 .builder-text-column .box.featured-event:before {
         content: "";
         display: block;
@@ -196,20 +190,50 @@ h3 {
         right: 0;
         background: rgba(8, 176, 146, 0.5);
         z-index: 1; }
+      .home #site-content #builder-section-1442853908968 .builder-text-column .box.featured-event button {
+        background-color: #00483A;
+        font-size: 10px;
+        padding: 2px 7px;
+        text-transform: uppercase;
+        display: block;
+        border-radius: 0;
+        position: absolute;
+        bottom: 10px;
+        right: 20px;
+        z-index: 2; }
     .home #site-content #builder-section-1442853908968 .builder-text-column .box.testimonial {
       font-size: 20px;
-      font-family: "EB Garamond", "Times New Roman", Times, serif;
+      font-family: "eb_garamond", "Times New Roman", Times, serif;
       text-align: center; }
     .home #site-content #builder-section-1442853908968 .builder-text-column .box.image {
       padding: 0; }
       .home #site-content #builder-section-1442853908968 .builder-text-column .box.image img {
-        width: 100%; }
+        width: 100%;
+        height: 100%; }
     .home #site-content #builder-section-1442853908968 .builder-text-column .box.blue {
       background-color: #344F74; }
     .home #site-content #builder-section-1442853908968 .builder-text-column .box.green {
       background-color: #549534; }
 .home #site-content .site-main {
   margin-top: 0; }
+.home #site-content .people-list {
+  padding: 20px 0 40px 0; }
+  .home #site-content .people-list:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .home #site-content .people-list li {
+    display: block;
+    padding: 0;
+    overflow: hidden;
+    height: 170px;
+    width: 120px;
+    margin-right: 1px; }
+    .home #site-content .people-list li .list-image img {
+      display: block;
+      width: auto;
+      max-width: initial;
+      margin-left: -45%; }
 .home #site-content .news-list {
   margin-top: 2em; }
   .home #site-content .news-list .news-item {
@@ -320,6 +344,50 @@ h3 {
       visibility: visible; }
 
 @media all and (min-width: 800px) {
+  .site-header .site-navigation {
+    position: absolute;
+    bottom: -30px;
+    color: #fff;
+    border: none;
+    padding: 0 20px;
+    font-size: 1rem;
+    left: 0; }
+    .site-header .site-navigation .nav-menu {
+      border: none;
+      display: table;
+      width: 100%; }
+    .site-header .site-navigation li {
+      text-align: center;
+      width: 25%;
+      display: table-cell;
+      vertical-align: bottom; }
+      .site-header .site-navigation li a {
+        background-color: rgba(52, 79, 116, 0.9);
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 16px;
+        font-weight: 700;
+        border-right: 1px #fff solid; }
+      .site-header .site-navigation li:last-child a {
+        border: none; }
+      .site-header .site-navigation li .description {
+        background-color: rgba(52, 79, 116, 0.9);
+        font-style: italic;
+        display: none;
+        padding: 1.1rem 1.6rem;
+        font-family: "eb_garamond", "Times New Roman", Times, serif; }
+      .site-header .site-navigation li:hover a {
+        background-color: rgba(84, 149, 52, 0.9); }
+      .site-header .site-navigation li:hover .description {
+        display: block;
+        background-color: rgba(84, 149, 52, 0.9); }
+
+  .home #site-content #builder-section-1442853908968 .builder-text-column {
+    width: 50%; }
+    .home #site-content #builder-section-1442853908968 .builder-text-column.builder-text-column-2 {
+      clear: none;
+      padding-top: 0; }
+
   .site-footer .columns-3 .widget-area {
     margin-right: 3%; }
   .site-footer .columns-3 .footer-1 {
@@ -329,5 +397,14 @@ h3 {
   .site-footer .columns-3 .footer-3 {
     width: 37%;
     margin-right: 0; } }
+@media all and (min-width: 960px) {
+  .site-header .site-header-main .container {
+    height: 450px; }
+  .site-header .site-navigation {
+    font-size: 1.2rem; }
+    .site-header .site-navigation li {
+      font-size: 18px; }
+      .site-header .site-navigation li a {
+        font-size: 20px; } }
 
 /*# sourceMappingURL=style.css.map */

@@ -91,25 +91,31 @@ function display_team_categories() {
 }
 
 function display_people_grid() {
+
+    // get cat list
+    $output = '<ul class="category-list">
+        '.display_team_categories().'
+        </ul>';
+    // add people list
+    $output .= display_people_list();
+    return $output;
+}
+add_shortcode( 'people_grid', 'display_people_grid' );
+
+function display_people_list() {
     $args = array(
         'post_type' => 'people',
         'posts_per_page' => 999,
         'order' => 'ASC'
     );
-    // get cat list
-    $output = '<ul class="category-list">
-        '.display_team_categories().'
-        </ul>';
-    // The Query
     $pp_query = new WP_Query( $args );
+    $output = '';
     if ( $pp_query->have_posts() ) {
-
         $output .= '<ul class="people-list">';
         while ( $pp_query->have_posts() ) {
             $pp_query->the_post();
             $img_thumb = get_the_post_thumbnail(get_the_ID(), 'full');
             $cat = get_the_category(get_the_ID());
-            //$img_url = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID()), 'full' );
             $output .= '
                 <li>
                     <div class="list-image '.$cat[0]->slug.'">
@@ -124,8 +130,8 @@ function display_people_grid() {
     }
     return $output;
 }
+add_shortcode( 'people_list', 'display_people_list' );
 
-add_shortcode( 'people_grid', 'display_people_grid' );
 
 // home news block
 function display_news_block() {
@@ -173,7 +179,8 @@ function display_event_block() {
                 <div class="event-item">
                     <h4><a href="'.get_the_permalink($post->ID).'">'.get_the_title($post->ID).'</a></h4>
                     <div class="excerpt">'.nl2br(get_the_content()).'</div>
-                </div>';
+                </div>
+                <button><a href="categories/events" class="button">See All</a></button>';
         }
         //$content .= '</div>';
     }
