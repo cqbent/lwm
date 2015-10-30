@@ -61,6 +61,14 @@ h3 {
     background-size: 85%;
     padding: 20px;
     width: 230px; }
+  .site-header .site-description {
+    position: absolute;
+    right: 0;
+    color: #fff;
+    text-transform: none;
+    font-size: 2.7em;
+    width: 715px;
+    text-align: right; }
 
 .site-content .site-main {
   margin-top: 3em; }
