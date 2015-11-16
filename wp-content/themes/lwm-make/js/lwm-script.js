@@ -18,5 +18,31 @@ jQuery(document).ready(function($) {
             $('.people-list li div.'+ac).addClass('active');
         }
         console.log(ac);
-    })
+    });
+    $('.jcarousel').jcarousel({
+        wrap: 'both'
+    });
+
+    $('.jcarousel-control-next')
+        .on('jcarouselcontrol:active', function() {
+            $(this).removeClass('inactive');
+        })
+        .on('jcarouselcontrol:inactive', function() {
+            $(this).addClass('inactive');
+        })
+        .jcarouselControl({
+            // Options go here
+            target: '+=1'
+        });
+    $('.jcarousel-control-prev')
+        .on('jcarouselcontrol:active', function() {
+            $(this).removeClass('inactive');
+        })
+        .on('jcarouselcontrol:inactive', function() {
+            $(this).addClass('inactive');
+        })
+        .jcarouselControl({
+            // Options go here
+            target: '-=1'
+        });
 });

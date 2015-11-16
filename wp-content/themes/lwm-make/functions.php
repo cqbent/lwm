@@ -27,6 +27,7 @@ function add_css_js() {
     wp_enqueue_style('typography', '//cloud.typography.com/7724174/676888/css/fonts.css');
     wp_enqueue_style('garamond','//fonts.googleapis.com/css?family=EB+Garamond');
     //wp_enqueue_style( 'FontAwesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css' );
+    wp_enqueue_script('jcarousel_script', get_stylesheet_directory_uri() . '/js/jquery.jcarousel.js', array('jquery'));
     wp_enqueue_script('lwm_script', get_stylesheet_directory_uri() . '/js/lwm-script.js', array('jquery'));
 }
 add_action( 'wp_enqueue_scripts', 'add_css_js' );
@@ -61,11 +62,9 @@ function add_description_to_menu($item_output, $item, $depth, $args) {
         // append description after link
         //$item_output .= sprintf('<span class="description">%s</span>', esc_html($item->description));
         $item_output = sprintf('<span class="description">%s</span>', esc_html($item->description)) . $item_output;
-
         // insert description as last item *in* link ($input_output ends with "</a>{$args->after}")
         //$item_output = substr($item_output, 0, -strlen("</a>{$args->after}")) . sprintf('<span class="description">%s</span >', esc_html($item->description)) . "</a>{$args->after}";
     }
-
     return $item_output;
 }
 add_filter('walker_nav_menu_start_el', 'add_description_to_menu', 10, 4);
@@ -130,13 +129,28 @@ function display_people_list() {
     }
     return $output;
 }
-add_shortcode( 'people_list', 'display_people_list' );
+
+function display_people_carousel() {
+    $output = '
+        <div class="jcarousel-wrapper">
+            <div class="jcarousel">
+            ' . display_people_list() . '
+            </div>
+            <div class="controls">
+                <span class="jcarousel-control-prev"></span>
+                <span class="jcarousel-control-next"></span>
+            </div>
+        </div>';
+    return $output;
+}
+
+add_shortcode( 'people_carousel', 'display_people_carousel' );
 
 
 // home news block
-function display_news_block() {
+function get_news($n = -1) {
     $args = array(
-        'numberposts'=>2,
+        'numberposts'=>$n,
         'category_name'=>'news',
         'order_by'=>'date',
         'order'=> 'DESC',
@@ -145,7 +159,7 @@ function display_news_block() {
 
     $fpresult = get_posts($args);
     if ($fpresult) {
-        $content = '<div class="news-list">';
+        $content = '';
         foreach($fpresult as $post) {
             setup_postdata($post);
             $content .= '
@@ -159,7 +173,28 @@ function display_news_block() {
     }
     return $content;
 }
-add_shortcode( 'news_block', 'display_news_block' );
+
+function display_featured_news_list() {
+    $output = '
+        <div class="news-list">
+            <h3>News + Insights</h3>
+            ' . get_news(2) . '
+        </div>
+    ';
+    return $output;
+}
+
+add_shortcode( 'news_feature', 'display_featured_news_list' );
+
+function display_news_list() {
+    $output = '
+        <div class="news-list">
+            ' . get_news() . '
+        </div>
+    ';
+    return $output;
+}
+add_shortcode( 'news_list', 'display_news_list' );
 
 function display_event_block() {
     $args = array(
@@ -180,7 +215,7 @@ function display_event_block() {
                     <h4><a href="'.get_the_permalink($post->ID).'">'.get_the_title($post->ID).'</a></h4>
                     <div class="excerpt">'.nl2br(get_the_content()).'</div>
                 </div>
-                <button><a href="categories/events" class="button">See All</a></button>';
+                <button><a href="category/events" class="button">See All</a></button>';
         }
         //$content .= '</div>';
     }
