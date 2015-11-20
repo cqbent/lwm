@@ -30,6 +30,7 @@ $light-green: #08b092;
 $aqua: #008aaa;
 $text-gray: #666;
 $white: #fff;
+$max-width: 1024px;
 
 // eb garamond fonts
 @font-face {
@@ -370,9 +371,19 @@ h3 {
     }
     .builder-section {
       &#builder-section-1447621009841 {
+
+      }
+      .builder-section-content {
+        max-width: 100%;
+        padding: 0;
+        .tagline, .news-list {
+          max-width: $max-width;
+          margin: 0 auto;
+        }
+      }
+      &#builder-section-1442428787028 {
         .builder-section-content {
-          max-width: 100%;
-          padding: 0;
+          max-width: $max-width;
         }
       }
       .box {
@@ -785,6 +796,10 @@ h3 {
   }
   // flexbox styling
   .flex {
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
     display: flex;
     &.box-container {
       width: 100%;
@@ -792,7 +807,13 @@ h3 {
     }
     &.column {
       flex-flow: row wrap;
+      -webkit-box-flex: 1;      /* OLD - iOS 6-, Safari 3.1-6 */
+      -moz-box-flex: 1;         /* OLD - Firefox 19- */
+      -webkit-flex: 1;          /* Chrome */
+      -ms-flex: 1;
       flex: 1 1 50%;
+      width: 50%;               /* For old syntax, otherwise collapses. */
+
       &.col-1 {
         .box {
           flex: 1 1 100%;

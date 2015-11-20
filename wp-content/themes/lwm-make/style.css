@@ -252,9 +252,14 @@ h3 {
   .home #site-content #builder-section-1442428787028 .builder-text-image img {
     height: 125px;
     width: auto; }
-.home #site-content .builder-section#builder-section-1447621009841 .builder-section-content {
+.home #site-content .builder-section .builder-section-content {
   max-width: 100%;
   padding: 0; }
+  .home #site-content .builder-section .builder-section-content .tagline, .home #site-content .builder-section .builder-section-content .news-list {
+    max-width: 1024px;
+    margin: 0 auto; }
+.home #site-content .builder-section#builder-section-1442428787028 .builder-section-content {
+  max-width: 1024px; }
 .home #site-content .builder-section .box {
   padding: 10px 20px;
   font-size: 10px;
@@ -552,13 +557,30 @@ h3 {
     margin-right: 0; }
 
   .flex {
+    display: -webkit-box;
+    /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;
+    /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;
+    /* TWEENER - IE 10 */
+    display: -webkit-flex;
+    /* NEW - Chrome */
     display: flex; }
     .flex.box-container {
       width: 100%;
       max-width: 100%; }
     .flex.column {
       flex-flow: row wrap;
-      flex: 1 1 50%; }
+      -webkit-box-flex: 1;
+      /* OLD - iOS 6-, Safari 3.1-6 */
+      -moz-box-flex: 1;
+      /* OLD - Firefox 19- */
+      -webkit-flex: 1;
+      /* Chrome */
+      -ms-flex: 1;
+      flex: 1 1 50%;
+      width: 50%;
+      /* For old syntax, otherwise collapses. */ }
       .flex.column.col-1 .box {
         flex: 1 1 100%; }
       .flex.column.col-2 .box {
