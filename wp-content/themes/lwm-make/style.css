@@ -68,7 +68,8 @@ h3 {
     text-transform: none;
     font-size: 2.7em;
     width: 715px;
-    text-align: right; }
+    text-align: right;
+    display: none; }
 
 .site-content .site-main {
   margin-top: 3em; }
