@@ -119,7 +119,7 @@ function display_people_list() {
                 <li>
                     <div class="list-image '.$cat[0]->slug.'">
                         '.$img_thumb.'
-                        <span>'.get_the_title().'</span>
+                        <span>'.get_the_title().' <br />'. get_field('job_title') .'</span>
 
                     </div>
                 </li>';

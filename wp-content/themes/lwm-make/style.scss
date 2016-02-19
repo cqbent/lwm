@@ -114,6 +114,9 @@ h3 {
       height: 425px;
     }
   }
+  .site-branding {
+    float: left;
+  }
   .custom-logo {
     background-color: rgba(255,255,255,0.5);
     background-size: 85%;
@@ -123,12 +126,41 @@ h3 {
   .site-description {
     position: absolute;
     right: 0;
-    color: $white;
+    color: $blue;
     text-transform: none;
-    font-size: 2.7em;
-    width: 715px;
+    max-width: 735px;
     text-align: right;
+    padding-right: 20px;
     //display: none;
+  }
+  .top-menu {
+    float: right;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+      margin: 0 0 0 10px;
+      padding: 0;
+      float: left;
+      &.home {
+        .home & {
+          display: none;
+        }
+      }
+
+      a {
+        background-color: $blue;
+        padding: 5px 10px;
+        color: $white;
+        font-size: .875em;
+        font-weight: normal;
+        &:hover {
+          background-color: $green;
+        }
+      }
+    }
+
   }
 }
 
@@ -266,8 +298,15 @@ h3 {
 // HOME PAGE SECTION
 .home {
   .site-header {
-    position: absolute;
-    background: none;
+    max-width: 1024px;
+    padding: 0;
+    .container {
+      padding: 0;
+      max-width: 100%;
+    }
+    .site-description {
+      background: rgba(255,255,255,.6);
+    }
   }
   #site-content {
     .builder-text-content {
@@ -279,6 +318,14 @@ h3 {
       }
       p {
         font-size: 14px;
+      }
+    }
+    .builder-section-banner {
+      .cycle-prev:before {
+        left: 0;
+      }
+      .cycle-next:before {
+        right: 0;
       }
     }
     #builder-section-1442853908968 {
@@ -576,7 +623,9 @@ h3 {
         }
       }
     }
+
   }
+
 }
 
 // PEOPLE SECTION
@@ -710,9 +759,79 @@ h3 {
 
 }
 
+@media all and (max-width: 799px) {
+  .site-header {
+    margin: 0;
+    .site-header-main {
+      .container {
+        height: auto;
+        padding: 0;
+      }
+      .site-branding {
+        width: 100%;
+        .custom-logo {
+          width: 30%;
+        }
+        .site-description {
+          font-size: 1.25em;
+          top: 30px;
+          right: 0px;
+          width: 70%;
+          background: none;
+          line-height: normal;
+        }
+      }
+      .top-menu {
+        position: absolute;
+        right: 20px;
+      }
+    }
+    .site-navigation {
+      .menu-toggle {
+        border-radius: 0;
+      }
+      .nav-menu {
+        position: absolute;
+        width: 100%;
+        background: rgba(255,255,255,.8);
+        li {
+          .description {
+            display: none;
+          }
+          a {
+            padding: 1.1rem;
+          }
+        }
+      }
+    }
+
+  }
+  .home {
+    #site-content {
+      .builder-section-banner {
+        display: none;
+      }
+    }
+  }
+  .site-header {}
+}
+
 
 @media all and (min-width: 800px) {
   .site-header {
+    .home & {
+      position: absolute;
+      background: none;
+      margin: 0 3.2rem;
+      width: calc(100% - 6.2rem);
+    }
+    .site-description {
+      font-size: 2.5em;
+      padding: 0 20px;
+      span {
+        display: block;
+      }
+    }
     .site-navigation {
       position: absolute;
       bottom: -30px;
@@ -839,6 +958,7 @@ h3 {
     .site-header-main {
       .container {
         height: 450px;
+
       }
     }
     .site-navigation {
@@ -849,6 +969,14 @@ h3 {
           font-size: 20px;
         }
       }
+    }
+  }
+}
+
+@media all and (min-width: 1024px) {
+  .home {
+    .site-header {
+      margin: 0 calc((100% - 1024px) / 2);
     }
   }
 }

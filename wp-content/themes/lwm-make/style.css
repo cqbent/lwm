@@ -1,9 +1,9 @@
 /**
- * Theme Name:  Make (child theme)
+ * Theme Name:  LWM Theme (Make)
  * Theme URI:   https://thethemefoundry.com/make/
- * Author:      The Theme Foundry
- * Author URI:  https://thethemefoundry.com
- * Description: Create your website without touching a line of code. Make's flexible customization features and a powerful drag and drop page builder make designing your site fun and easy. Build almost anything: a simple portfolio or photography site, an ecommerce business site, a minimalist blog, or even a professional magazine. You'll start by customizing your background, layouts, fonts, colors, and logo. Next, add and organize your content using the drag and drop page builder. Add a photo, a video, a gallery, or even a slider to any page on your website. Make is responsive, so your website will naturally look great on phones, tablets, and desktop screens. It's also fully compatible with popular plugins like WooCommerce, Gravity Forms, Contact Form 7, Jetpack, and WP PageNavi.
+ * Author:      SYP Development, Inc
+ * Author URI:  http://sypdevelopment.com
+ * Description: Custom theme based on Make theme
  * Version:     1.1.0
  * License:     GNU General Public License v2 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -56,6 +56,8 @@ h3 {
     .site-header .site-header-main .container {
       position: relative;
       height: 425px; }
+  .site-header .site-branding {
+    float: left; }
   .site-header .custom-logo {
     background-color: rgba(255, 255, 255, 0.5);
     background-size: 85%;
@@ -64,11 +66,30 @@ h3 {
   .site-header .site-description {
     position: absolute;
     right: 0;
-    color: #fff;
+    color: #344F74;
     text-transform: none;
-    font-size: 2.7em;
-    width: 715px;
-    text-align: right; }
+    max-width: 735px;
+    text-align: right;
+    padding-right: 20px; }
+  .site-header .top-menu {
+    float: right;
+    margin: 0;
+    padding: 0;
+    list-style: none; }
+    .site-header .top-menu li {
+      margin: 0 0 0 10px;
+      padding: 0;
+      float: left; }
+      .home .site-header .top-menu li.home {
+        display: none; }
+      .site-header .top-menu li a {
+        background-color: #344F74;
+        padding: 5px 10px;
+        color: #fff;
+        font-size: .875em;
+        font-weight: normal; }
+        .site-header .top-menu li a:hover {
+          background-color: #549534; }
 
 .site-content .site-main {
   margin-top: 3em; }
@@ -169,8 +190,13 @@ h3 {
     top: 0; }
 
 .home .site-header {
-  position: absolute;
-  background: none; }
+  max-width: 1024px;
+  padding: 0; }
+  .home .site-header .container {
+    padding: 0;
+    max-width: 100%; }
+  .home .site-header .site-description {
+    background: rgba(255, 255, 255, 0.6); }
 .home #site-content .builder-text-content {
   font-size: .8375em;
   text-align: center; }
@@ -179,6 +205,10 @@ h3 {
     margin-bottom: 5px; }
   .home #site-content .builder-text-content p {
     font-size: 14px; }
+.home #site-content .builder-section-banner .cycle-prev:before {
+  left: 0; }
+.home #site-content .builder-section-banner .cycle-next:before {
+  right: 0; }
 .home #site-content #builder-section-1442853908968 .builder-text-column {
   width: 100%;
   margin: 0;
@@ -501,7 +531,50 @@ h3 {
     .people-list.filter li .list-image.active {
       visibility: visible; }
 
+@media all and (max-width: 799px) {
+  .site-header {
+    margin: 0; }
+    .site-header .site-header-main .container {
+      height: auto;
+      padding: 0; }
+    .site-header .site-header-main .site-branding {
+      width: 100%; }
+      .site-header .site-header-main .site-branding .custom-logo {
+        width: 30%; }
+      .site-header .site-header-main .site-branding .site-description {
+        font-size: 1.25em;
+        top: 30px;
+        right: 0px;
+        width: 70%;
+        background: none;
+        line-height: normal; }
+    .site-header .site-header-main .top-menu {
+      position: absolute;
+      right: 20px; }
+    .site-header .site-navigation .menu-toggle {
+      border-radius: 0; }
+    .site-header .site-navigation .nav-menu {
+      position: absolute;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.8); }
+      .site-header .site-navigation .nav-menu li .description {
+        display: none; }
+      .site-header .site-navigation .nav-menu li a {
+        padding: 1.1rem; }
+
+  .home #site-content .builder-section-banner {
+    display: none; } }
 @media all and (min-width: 800px) {
+  .home .site-header {
+    position: absolute;
+    background: none;
+    margin: 0 3.2rem;
+    width: calc(100% - 6.2rem); }
+  .site-header .site-description {
+    font-size: 2.5em;
+    padding: 0 20px; }
+    .site-header .site-description span {
+      display: block; }
   .site-header .site-navigation {
     position: absolute;
     bottom: -30px;
@@ -598,5 +671,8 @@ h3 {
       font-size: 18px; }
       .site-header .site-navigation li a {
         font-size: 20px; } }
+@media all and (min-width: 1024px) {
+  .home .site-header {
+    margin: 0 calc((100% - 1024px) / 2); } }
 
 /*# sourceMappingURL=style.css.map */
