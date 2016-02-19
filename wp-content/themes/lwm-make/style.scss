@@ -718,6 +718,16 @@ h3 {
         display: block;
         width: 100%;
       }
+      a {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(8,176,146, 0.5);
+        color: $white;
+        display: none;
+      }
       span {
         position: absolute;
         bottom: 10px;
@@ -725,10 +735,9 @@ h3 {
         color: $white;
         font-weight: bold;
         font-size: .88em;
-        display: none;
-
       }
       &:hover {
+        /*
         &:before {
           content: "";
           display: block;
@@ -739,7 +748,8 @@ h3 {
           right: 0;
           background: rgba(8,176,146, 0.5);
         }
-        span {
+        */
+        a {
           display: block;
         }
       }
@@ -756,7 +766,19 @@ h3 {
     }
 
   }
-
+}
+.single-people {
+  article {
+    h1 {
+      font-size: 2em;
+      margin: 0;
+    }
+    .job-title {
+      font-size: 1.25em;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+  }
 }
 
 @media all and (max-width: 799px) {
@@ -882,6 +904,17 @@ h3 {
         }
       }
 
+    }
+  }
+  .single-people {
+    .sidebars-column-1 {
+      float: left;
+      width: 30%;
+      margin-right: 20px;
+    }
+    .sidebar-content {
+      float: left;
+      width: calc(70% - 20px)
     }
   }
   .home {

@@ -119,8 +119,7 @@ function display_people_list() {
                 <li>
                     <div class="list-image '.$cat[0]->slug.'">
                         '.$img_thumb.'
-                        <span>'.get_the_title().' <br />'. get_field('job_title') .'</span>
-
+                        <a href="'.get_the_permalink(get_the_ID()).'"><span>'.get_the_title().' <br />'. get_field('job_title') .'</span></a>
                     </div>
                 </li>';
         }

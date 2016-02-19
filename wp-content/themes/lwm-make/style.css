@@ -1,9 +1,9 @@
 /**
- * Theme Name:  LWM Theme (Make)
+ * Theme Name:  Make (child theme)
  * Theme URI:   https://thethemefoundry.com/make/
- * Author:      SYP Development, Inc
- * Author URI:  http://sypdevelopment.com
- * Description: Custom theme based on Make theme
+ * Author:      The Theme Foundry
+ * Author URI:  https://thethemefoundry.com
+ * Description: Create your website without touching a line of code. Make's flexible customization features and a powerful drag and drop page builder make designing your site fun and easy. Build almost anything: a simple portfolio or photography site, an ecommerce business site, a minimalist blog, or even a professional magazine. You'll start by customizing your background, layouts, fonts, colors, and logo. Next, add and organize your content using the drag and drop page builder. Add a photo, a video, a gallery, or even a slider to any page on your website. Make is responsive, so your website will naturally look great on phones, tablets, and desktop screens. It's also fully compatible with popular plugins like WooCommerce, Gravity Forms, Contact Form 7, Jetpack, and WP PageNavi.
  * Version:     1.1.0
  * License:     GNU General Public License v2 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -507,29 +507,49 @@ h3 {
   .people-list li .list-image img {
     display: block;
     width: 100%; }
+  .people-list li .list-image a {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(8, 176, 146, 0.5);
+    color: #fff;
+    display: none; }
   .people-list li .list-image span {
     position: absolute;
     bottom: 10px;
     left: 10px;
     color: #fff;
     font-weight: bold;
-    font-size: .88em;
-    display: none; }
-  .people-list li .list-image:hover:before {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(8, 176, 146, 0.5); }
-  .people-list li .list-image:hover span {
-    display: block; }
+    font-size: .88em; }
+  .people-list li .list-image:hover {
+    /*
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(8,176,146, 0.5);
+    }
+    */ }
+    .people-list li .list-image:hover a {
+      display: block; }
   .people-list.filter li .list-image {
     visibility: hidden; }
     .people-list.filter li .list-image.active {
       visibility: visible; }
+
+.single-people article h1 {
+  font-size: 2em;
+  margin: 0; }
+.single-people article .job-title {
+  font-size: 1.25em;
+  font-weight: bold;
+  margin-bottom: 20px; }
 
 @media all and (max-width: 799px) {
   .site-header {
@@ -612,6 +632,14 @@ h3 {
       .site-header .site-navigation li:hover .description {
         display: block;
         background-color: rgba(84, 149, 52, 0.9); }
+
+  .single-people .sidebars-column-1 {
+    float: left;
+    width: 30%;
+    margin-right: 20px; }
+  .single-people .sidebar-content {
+    float: left;
+    width: calc(70% - 20px); }
 
   .home #site-content #builder-section-1442853908968 .builder-text-column {
     width: 50%; }
