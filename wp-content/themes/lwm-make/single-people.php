@@ -13,6 +13,9 @@ global $post;
 <?php if ( have_posts() ) : ?>
 
 	<?php while ( have_posts() ) : the_post(); ?>
+		<?php
+		$credentials = get_field('credentials') ? ', '.get_field('credentials') : '';
+		?>
 		<article id="post-<?php the_ID(); ?>" <?php post_class('cf'); ?> role="article">
 			<div class="sidebars-column-1">
 				<figure class="entry-thumbnail post-header">
@@ -21,7 +24,7 @@ global $post;
 			</div>
 			<div class="sidebar-content">
 				<header class="article-header">
-					<h1 class="single-title custom-post-type-title"><?php the_title(); ?></h1>
+					<h1 class="single-title custom-post-type-title"><?php the_title(); ?><?php print $credentials; ?></h1>
 				</header>
 				<section class="entry-content cf">
 					<div class="job-title"> <?php the_field('job_title'); ?> </div>
