@@ -103,7 +103,7 @@ h3 {
   margin: 0 auto;
   float: none;
   z-index: 100;
-  background-image: url(images/header_image_b.jpg);
+  background-image: url(images/lwm_header_bk.jpg);
   background-size: cover;
   position: relative;
   .site-header-main {
@@ -126,6 +126,7 @@ h3 {
   .site-description {
     position: absolute;
     right: 0;
+    top: 120px;
     color: $blue;
     text-transform: none;
     max-width: 735px;
