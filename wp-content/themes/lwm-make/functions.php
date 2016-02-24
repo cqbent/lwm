@@ -116,11 +116,12 @@ function display_people_list() {
             $img_thumb = get_the_post_thumbnail(get_the_ID(), 'full');
             $cat = get_the_category(get_the_ID());
             $credentials = get_field('credentials') ? ', '.get_field('credentials') : '';
+            $biolink = get_field('show_bio') ? get_the_permalink(get_the_ID()) : 'javascript:void(0)';
             $output .= '
                 <li>
                     <div class="list-image '.$cat[0]->slug.'">
                         '.$img_thumb.'
-                        <a href="'.get_the_permalink(get_the_ID()).'"><span>'.get_the_title().$credentials.' <br />'. get_field('job_title') .'</span></a>
+                        <a href="'.$biolink.'"><span>'.get_the_title().$credentials.' <br />'. get_field('job_title') .'</span></a>
                     </div>
                 </li>';
         }
