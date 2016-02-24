@@ -396,6 +396,8 @@ h3 {
       height: 170px; }
     .home #site-content .jcarousel-wrapper .people-list li span {
       width: 130px; }
+    .home #site-content .jcarousel-wrapper .people-list li:nth-child(4n+5) {
+      clear: none; }
   .home #site-content .jcarousel-wrapper .controls span {
     position: absolute;
     height: 170px;
@@ -539,6 +541,8 @@ h3 {
     */ }
     .people-list li .list-image:hover a {
       display: block; }
+  .people-list li:nth-child(4n+5) {
+    clear: both; }
   .people-list.filter li .list-image {
     visibility: hidden; }
     .people-list.filter li .list-image.active {

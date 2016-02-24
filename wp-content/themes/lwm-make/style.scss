@@ -558,6 +558,9 @@ h3 {
           span {
             width: 130px;
           }
+          &:nth-child(4n+5) {
+            clear: none;
+          }
         }
       }
       .controls {
@@ -754,6 +757,9 @@ h3 {
           display: block;
         }
       }
+    }
+    &:nth-child(4n+5) {
+      clear: both;
     }
   }
   &.filter {
