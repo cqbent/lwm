@@ -45,7 +45,7 @@ function create_post_type_people() {
             'has_archive' => true,
             'rewrite' => array('slug' => 'people', 'with_front' => false),
             'hierarchical' => true,
-            'supports' => array('title','author','custom-fields','thumbnail','editor'),
+            'supports' => array('title','author','custom-fields','thumbnail','editor','revisions'),
             'taxonomies' => array('category'),
             'not-found' => __('Nothing was found. what to do?')
         )
