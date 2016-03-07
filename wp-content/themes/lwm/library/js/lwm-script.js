@@ -45,4 +45,13 @@ jQuery(document).ready(function($) {
             // Options go here
             target: '-=1'
         });
+
+    // load flexslider
+    $('.flexslider').flexslider({
+        controlNav: false,
+        directionNav: true,
+        slideshowSpeed: 4500,
+        animation: 'fade',
+        pauseOnHover: true,
+    });
 });

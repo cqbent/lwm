@@ -250,9 +250,12 @@ add_action('wp_enqueue_scripts', 'bones_fonts');
 function add_css_js() {
   wp_enqueue_style('typography', '//cloud.typography.com/7724174/676888/css/fonts.css');
   wp_enqueue_style('garamond','//fonts.googleapis.com/css?family=EB+Garamond');
-  //wp_enqueue_style( 'FontAwesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css' );
-  wp_enqueue_script('jcarousel_script', get_stylesheet_directory_uri() . '/js/jquery.jcarousel.js', array('jquery'));
-  wp_enqueue_script('lwm_script', get_stylesheet_directory_uri() . '/js/lwm-script.js', array('jquery'));
+  wp_enqueue_style( 'FontAwesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css' );
+  wp_enqueue_style( 'flexslider-css', get_stylesheet_directory_uri() . '/library/flexslider/flexslider.css');
+  wp_enqueue_script('flexslider', get_stylesheet_directory_uri() . '/library/flexslider/jquery.flexslider.js', array('jquery', 'bones-modernizr'));
+  wp_enqueue_script('jcarousel_script', get_stylesheet_directory_uri() . '/library/js/jquery.jcarousel.js', array('jquery'));
+  wp_enqueue_script('lwm_script', get_stylesheet_directory_uri() . '/library/js/lwm-script.js', array('jquery'));
+
 }
 add_action( 'wp_enqueue_scripts', 'add_css_js' );
 
@@ -276,6 +279,8 @@ function create_post_type_people() {
   );
 }
 add_action( 'init', 'create_post_type_people' );
+
+
 
 // remove footer credit
 $footer_credit = apply_filters( 'make_show_footer_credit', false );
@@ -313,11 +318,22 @@ function display_team_categories() {
   return $catlist;
 }
 
+function display_team_departments() {
+  //$departments = array('advisors','client-services-team','investment-team'.'management');
+  $departments = get_field_object('field_56ddd3c20bcbe');
+  $deptlist = $departments['choices'];
+  $output = '';
+  foreach ($deptlist as $key => $value) {
+    $output .= '<li><div class="'.$key.'">'.$value.'</div></li>';
+  }
+  return $output;
+}
+
 function display_people_grid() {
 
   // get cat list
   $output = '<ul class="category-list">
-        '.display_team_categories().'
+        '.display_team_departments().'
         </ul>';
   // add people list
   $output .= display_people_list();
@@ -335,16 +351,24 @@ function display_people_list() {
   $output = '';
   if ( $pp_query->have_posts() ) {
     $output .= '<ul class="people-list">';
+    $deptobject = '';
     while ( $pp_query->have_posts() ) {
       $pp_query->the_post();
       $img_thumb = get_the_post_thumbnail(get_the_ID(), 'full');
       $cat = get_the_category(get_the_ID());
+      if (get_field('team_department')) {
+        $dept = implode(' ',get_field('team_department'));
+      }
+      else {
+        $dept = '';
+      }
+      $credentials = get_field('credentials') ? ', '.get_field('credentials') : '';
+      $biolink = get_field('show_bio') ? get_the_permalink(get_the_ID()) : 'javascript:void(0)';
       $output .= '
                 <li>
-                    <div class="list-image '.$cat[0]->slug.'">
+                    <div class="list-image '.$dept.'">
                         '.$img_thumb.'
-                        <span>'.get_the_title().' <br />'. get_field('job_title') .'</span>
-
+                        <a href="'.$biolink.'"><span>'.get_the_title().$credentials.' <br />'. get_field('job_title') .'</span></a>
                     </div>
                 </li>';
     }
@@ -439,12 +463,76 @@ function display_event_block() {
                     <h4><a href="'.get_the_permalink($post->ID).'">'.get_the_title($post->ID).'</a></h4>
                     <div class="excerpt">'.nl2br(get_the_content()).'</div>
                 </div>
-                <button><a href="category/events" class="button">See All</a></button>';
+                <a href="category/events" class="button">See All</a>';
     }
     //$content .= '</div>';
   }
   return $content;
 }
 add_shortcode( 'event_block', 'display_event_block' );
+
+
+// create post type slide
+function create_post_type_slide() {
+  register_post_type( 'slide',
+      array(
+          'labels' => array(
+              'name' => __( 'Slide Images' ),
+              'singular_name' => __( 'Slide' )
+          ),
+          'public' => true,
+          'has_archive' => false,
+          'rewrite' => array('slug' => 'slide', 'with_front' => false),
+          'hierarchical' => true,
+          'supports' => array('title','author','custom-fields','thumbnail','editor'),
+          'not-found' => __('Nothing was found. what to do?')
+      )
+  );
+}
+add_action( 'init', 'create_post_type_slide' );
+
+// display slides
+function display_slides() {
+  // Query Arguments
+  $args = array(
+      'post_type' => 'slide',
+      'posts_per_page' => 15,
+      'order' => 'ASC'
+
+  );
+  // The Query
+  $the_query = new WP_Query( $args );
+  // Check if the Query returns any posts
+  if ( $the_query->have_posts() ) {
+    // Start the Slider ?>
+
+    <div class="flexslider">
+      <ul class="slides">
+        <?php
+        // The Loop
+        while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+          <?php
+          // get slide image, title and caption
+          $thumbid = get_post_thumbnail_id();
+          $imgsrc = wp_get_attachment_image_src($thumbid, 'full')
+          ?>
+          <li>
+            <div class="slider-image" style="background-image: url(<?php echo $imgsrc[0]; ?>)"></div>
+            <div class="slider-content">
+              <span class="slider-caption"><?php echo get_post_field('post_excerpt', $thumbid ); ?></span>
+            </div>
+          </li>
+        <?php endwhile; ?>
+
+      </ul><!-- .slides -->
+    </div><!-- .flexslider -->
+
+  <?php }
+
+  // Reset Post Data
+  wp_reset_postdata();
+}
+
+
 
 /* DON'T DELETE THIS CLOSING TAG */ ?>

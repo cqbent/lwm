@@ -39,24 +39,24 @@ $max-width: 1024px;
 // eb garamond fonts
 @font-face {
     font-family: 'eb_garamond';
-    src: url('fonts/ebgaramond12-regular-webfont.eot');
-    src: url('fonts/ebgaramond12-regular-webfont.eot?#iefix') format('embedded-opentype'),
-    url('fonts/ebgaramond12-regular-webfont.woff2') format('woff2'),
-    url('fonts/ebgaramond12-regular-webfont.woff') format('woff'),
-    url('fonts/ebgaramond12-regular-webfont.ttf') format('truetype'),
-    url('fonts/ebgaramond12-regular-webfont.svg#eb_garamond12_regular') format('svg');
+    src: url('../fonts/ebgaramond12-regular-webfont.eot');
+    src: url('../fonts/ebgaramond12-regular-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/ebgaramond12-regular-webfont.woff2') format('woff2'),
+    url('../fonts/ebgaramond12-regular-webfont.woff') format('woff'),
+    url('../fonts/ebgaramond12-regular-webfont.ttf') format('truetype'),
+    url('../fonts/ebgaramond12-regular-webfont.svg#eb_garamond12_regular') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'eb_garamond';
-    src: url('fonts/ebgaramond12-italic-webfont.eot');
-    src: url('fonts/ebgaramond12-italic-webfont.eot?#iefix') format('embedded-opentype'),
-    url('fonts/ebgaramond12-italic-webfont.woff2') format('woff2'),
-    url('fonts/ebgaramond12-italic-webfont.woff') format('woff'),
-    url('fonts/ebgaramond12-italic-webfont.ttf') format('truetype'),
-    url('fonts/ebgaramond12-italic-webfont.svg#eb_garamond12_italic') format('svg');
+    src: url('../fonts/ebgaramond12-italic-webfont.eot');
+    src: url('../fonts/ebgaramond12-italic-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/ebgaramond12-italic-webfont.woff2') format('woff2'),
+    url('../fonts/ebgaramond12-italic-webfont.woff') format('woff'),
+    url('../fonts/ebgaramond12-italic-webfont.ttf') format('truetype'),
+    url('../fonts/ebgaramond12-italic-webfont.svg#eb_garamond12_italic') format('svg');
     font-weight: normal;
     font-style: italic;
 }
@@ -95,6 +95,8 @@ body {
     font-family: $gotham;
     font-style: normal;
     font-weight: 400;
+    padding: 0;
+    margin: 0;
 }
 h1, h2, h3, h4, h5, h6 {
     font-family: $gotham;
@@ -102,6 +104,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 h3 {
     font-size: 2rem;
+}
+.columns-3 {
+    @include outer-container;
+    .col-1, .col-2, .col-3 {
+        @include span-columns(4);
+        text-align: center;
+    }
 }
 .site-header, .header {
     margin: 0 auto;
@@ -118,6 +127,14 @@ h3 {
             height: 425px;
         }
     }
+    .site-header-main {
+        .container {
+            max-width: 1024px;
+            margin: 0 auto;
+            padding: 0 3.2rem;
+        }
+
+    }
     .site-branding {
         float: left;
     }
@@ -126,6 +143,22 @@ h3 {
         background-size: 85%;
         padding: 20px;
         width: 230px;
+        background-image: url("../images/lwm_logo_head.png");
+        display: block;
+        max-width: 100%;
+        margin-bottom: 1.1rem;
+        background-repeat: no-repeat;
+        background-position: center center;
+        a {
+            padding-bottom: 62.059620596206%;
+            display: block;
+            width: 85%;
+            height: 0;
+            color: rgba(0, 0, 0, 0);
+            text-shadow: none;
+            font: 0/0 a;
+            text-decoration: none;
+        }
     }
     .site-description {
         position: absolute;
@@ -136,6 +169,14 @@ h3 {
         text-align: right;
         padding-right: 20px;
         //display: none;
+    }
+    .site-navigation {
+        li {
+            font-size: 18px;
+            a {
+                font-weight: bold;
+            }
+        }
     }
     .top-menu {
         float: right;
@@ -168,48 +209,90 @@ h3 {
     }
 }
 
+.wrap {
+    max-width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .site-content {
     .site-main {
         margin-top: 3em;
     }
 }
-
-.entry-content {
-    color: $text-gray;
-    .builder-text-section-title {
-        font-size: 1.875em;
-        font-weight: 300;
-        text-align: center;
-        text-transform: uppercase;
-        margin-bottom: 1rem;
-        color: $blue;
-    }
-    p {
-        cite {
-            font-family: $serif;
-            text-align: center;
-            font-size: 28px;
-            color: $dark-green;
-            line-height: normal;
+#content {
+    .wrap, #inner-content {
+        margin-top: 3em;
+        article {
+            .page-template & .article-header {
+                display: none;
+            }
+            .entry-content {
+                color: $text-gray;
+                max-width: 1024px;
+                margin: 0 auto;
+                .builder-text-section-title, .section-title {
+                    font-size: 1.875em;
+                    font-weight: 300;
+                    text-align: center;
+                    text-transform: uppercase;
+                    margin-bottom: 1rem;
+                    color: $blue;
+                }
+                p {
+                    cite {
+                        font-family: $serif;
+                        text-align: center;
+                        font-size: 28px;
+                        color: $dark-green;
+                        line-height: normal;
+                        display: block;
+                    }
+                }
+            }
         }
     }
+    .home & {
+        #inner-content article .entry-content {
+            max-width: 100%;
+            cite {
+                &:before {
+                    content: "";
+
+                }
+            }
+        }
+    }
+    
 }
 
-.site-footer {
+
+.site-footer, .footer {
     background-color: $blue;
     color: $white;
     padding: 2rem 0;
+    font-size: .6em;
+    line-height: 1.5em;
+    font-weight: 600;
+    .footer-widget-container {
+        .widget-area {
+            float: left;
+        }
+        &:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+    }
     h4 {
         margin: 0;
         color: $light-blue;
         font-size: 1em;
     }
     p {
-        margin: 0;
+        margin: 0 0 4px 0;
     }
-    .widget {
-        font-size: .6em;
-    }
+
     /*
     .columns-3 {
       .widget-area {
@@ -254,6 +337,11 @@ h3 {
         input[type=submit] {
             margin-left: 10px;
             padding: 5px 20px;
+            background-color: black;
+            background-image: none;
+            border: none;
+            box-shadow: none;
+            font-size: 1.3em;
         }
     }
     img.ria-logo {
@@ -301,6 +389,49 @@ h3 {
 
 // HOME PAGE SECTION
 .home {
+    .flexslider {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        border: none;
+        margin: 0;
+        box-shadow: none;
+        border-radius: 0;
+        ul.slides {
+            padding: 0;
+            margin: 0;
+            li {
+                .slider-image {
+                    height: 450px;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                    background-size: cover;
+                }
+            }
+        }
+        .flex-direction-nav {
+            a {
+                opacity: 1;
+                text-shadow: none;
+                &:before {
+                    font-family: FontAwesome;
+                    margin-top: 5px;
+                }
+                &.flex-prev {
+                    left: 20px;
+                    &:before {
+                        content: "\f0a8";
+                    }
+                }
+                &.flex-next {
+                    right: 20px;
+                    &:before {
+                        content: "\f0a9";
+                    }
+                }
+            }
+        }
+    }
     .site-header, .header{
         max-width: 1024px;
         padding: 0;
@@ -311,9 +442,10 @@ h3 {
         .site-description {
             background: rgba(255,255,255,.6);
         }
+
     }
-    #site-content {
-        .builder-text-content {
+    #site-content, #content {
+        .builder-text-content, .flex.box-container {
             font-size: .8375em;
             text-align: center;
             h3 {
@@ -453,22 +585,22 @@ h3 {
                 }
                 h4 {
                     font-size: 15px;
-                    font-weight: normal;
                     margin-bottom: 0;
                     a {
-                        font-weight: normal;
+
                     }
                 }
                 &.featured-event {
-                    background-image: url(images/box_event_bk.jpg);
+                    background-image: url(../images/box_event_bk.jpg);
                     text-align: left;
+                    line-height: 1.5em;
                     &:before {
                         @include background-shade(#08b092, .5);
                     }
                     .event-item {
                         z-index: 1;
                     }
-                    button {
+                    .button {
                         background-color: $dark-green;
                         font-size: 10px;
                         padding: 2px 7px;
@@ -594,9 +726,16 @@ h3 {
                 }
             }
         }
-
+        .news-feature {
+            margin-bottom: 4rem;
+        }
         .news-list {
             margin-top: 2em;
+            text-align: center;
+            p {
+                margin-top : 0;
+                line-height: normal;
+            }
             h3 {
                 color: $blue;
                 text-transform: uppercase;
@@ -631,7 +770,11 @@ h3 {
     }
 
 }
-
+.home.admin-bar {
+    .flexslider {
+        top: 32px;
+    }
+}
 // PEOPLE SECTION
 .category-list, .people-list {
     margin: 0;
@@ -694,14 +837,18 @@ h3 {
     }
 }
 .category-list {
-    font-size: 1.117em;
+    font-size: 1em;
     text-transform: uppercase;
     line-height: 1.2em;
+    text-align: center;
     li {
+        width: auto;
+        float: none;
+        display: inline-block;
         div {
             border: 4px $green solid;
             padding: 5px 20px;
-            height: 62px;
+            height: 42px;
             text-align: center;
             color: $green;
             &:hover,  &.active {
@@ -715,51 +862,66 @@ h3 {
     }
 }
 .people-list {
-    padding-top: 20px;
+  padding-top: 20px;
+  @include clearfix;
+  li {
+    .list-image {
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+      a {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(8,176,146, 0.5);
+        color: $white;
+        display: none;
+      }
+      span {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        color: $white;
+        font-weight: bold;
+        font-size: .88em;
+      }
+      &:hover {
+        /*
+        &:before {
+          content: "";
+          display: block;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background: rgba(8,176,146, 0.5);
+        }
+        */
+        a {
+          display: block;
+        }
+      }
+    }
+    &:nth-child(4n+5) {
+      clear: both;
+    }
+  }
+  &.filter {
     li {
-        .list-image {
-            img {
-                display: block;
-                width: 100%;
-            }
-            span {
-                position: absolute;
-                bottom: 10px;
-                left: 10px;
-                color: $white;
-                font-weight: bold;
-                font-size: .88em;
-                display: none;
-
-            }
-            &:hover {
-                &:before {
-                    content: "";
-                    display: block;
-                    position: absolute;
-                    top: 0;
-                    bottom: 0;
-                    left: 0;
-                    right: 0;
-                    background: rgba(8,176,146, 0.5);
-                }
-                span {
-                    display: block;
-                }
-            }
+      .list-image {
+        visibility: hidden;
+        &.active {
+            visibility: visible;
         }
+      }
     }
-    &.filter {
-        li {
-            .list-image {
-                visibility: hidden;
-                &.active {
-                    visibility: visible;
-                }
-            }
-        }
 
-    }
+  }
 
 }
 
@@ -824,12 +986,12 @@ h3 {
 @media all and (min-width: 800px) {
     .site-header, .header {
         .home & {
-            position: absolute;
             background: none;
             margin: 0 3.2rem;
             width: calc(100% - 6.2rem);
         }
         .site-description {
+            display: none;
             font-size: 2.5em;
             padding: 0 20px;
             span {
@@ -844,10 +1006,13 @@ h3 {
             padding: 0 20px;
             font-size: 1rem;
             left: 0;
+            width: 100%;
             .nav-menu {
                 border: none;
                 display: table;
                 width: 100%;
+                padding: 0;
+                margin: 0;
             }
             li {
                 text-align: center;
@@ -858,9 +1023,9 @@ h3 {
                     background-color: rgba($blue, .9);
                     color: $white;
                     text-transform: uppercase;
-                    font-size: 16px;
-                    font-weight: 500;
                     border-right: 1px $white solid;
+                    display: block;
+                    padding: 1.1rem 1.6rem;
                 }
                 &:last-child {
                     a {
@@ -886,6 +1051,19 @@ h3 {
                 }
             }
 
+        }
+    }
+    #content #inner-content {
+        @include outer-container;
+        #main {
+            &.d-2of3 {
+                @include span-columns(9);
+            }
+        }
+        .sidebar {
+            &.d-1of3 {
+                @include span-columns(3);
+            }
         }
     }
     .home {
@@ -970,7 +1148,7 @@ h3 {
             li {
                 font-size: 18px;
                 a {
-                    font-size: 21px;
+                    font-size: 20px;
                 }
             }
         }
