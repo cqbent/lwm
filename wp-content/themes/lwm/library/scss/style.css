@@ -1339,8 +1339,6 @@ h3 {
     */ }
     .people-list li .list-image:hover a {
       display: block; }
-  .people-list li:nth-child(4n+5) {
-    clear: both; }
   .people-list.filter li .list-image {
     visibility: hidden; }
     .people-list.filter li .list-image.active {
