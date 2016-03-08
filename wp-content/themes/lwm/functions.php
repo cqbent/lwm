@@ -322,7 +322,9 @@ function display_team_departments() {
   //$departments = array('advisors','client-services-team','investment-team'.'management');
   $departments1 = get_field_object('field_56ddd3c20bcbe');
   $departments2 = get_field_object('field_56de0a27401cb');
-  $deptlist = $departments1 ? $departments1['choices'] : $departments2['choices'];
+  //var_dump($departments1);
+  //var_dump($departments2);
+  $deptlist = $departments1['choices'] ? $departments1['choices'] : $departments2['choices'];
   $output = '';
   foreach ($deptlist as $key => $value) {
     $output .= '<li><div class="'.$key.'">'.$value.'</div></li>';
