@@ -1429,27 +1429,27 @@ h3 {
         display: block;
         background-color: rgba(84, 149, 52, 0.9); }
 
-  #content #inner-content {
+  .page:not(.home) #content #inner-content {
     max-width: 1024px;
     margin-left: auto;
     margin-right: auto; }
-    #content #inner-content:after {
+    .page:not(.home) #content #inner-content:after {
       content: "";
       display: table;
       clear: both; }
-    #content #inner-content #main.d-2of3 {
+    .page:not(.home) #content #inner-content #main.d-2of3 {
       float: left;
       display: block;
       margin-right: 2.35765%;
       width: 74.41059%; }
-      #content #inner-content #main.d-2of3:last-child {
+      .page:not(.home) #content #inner-content #main.d-2of3:last-child {
         margin-right: 0; }
-    #content #inner-content .sidebar.d-1of3 {
+    .page:not(.home) #content #inner-content .sidebar.d-1of3 {
       float: left;
       display: block;
       margin-right: 2.35765%;
       width: 23.23176%; }
-      #content #inner-content .sidebar.d-1of3:last-child {
+      .page:not(.home) #content #inner-content .sidebar.d-1of3:last-child {
         margin-right: 0; }
 
   .home #site-content #builder-section-1442853908968 .builder-text-column {

@@ -907,7 +907,7 @@ h3 {
         }
       }
     }
-    
+
   }
   &.filter {
     li {
@@ -1052,7 +1052,7 @@ h3 {
 
         }
     }
-    #content #inner-content {
+    .page:not(.home) #content #inner-content {
         @include outer-container;
         #main {
             &.d-2of3 {

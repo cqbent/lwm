@@ -320,8 +320,9 @@ function display_team_categories() {
 
 function display_team_departments() {
   //$departments = array('advisors','client-services-team','investment-team'.'management');
-  $departments = get_field_object('field_56ddd3c20bcbe');
-  $deptlist = $departments['choices'];
+  $departments1 = get_field_object('field_56ddd3c20bcbe');
+  $departments2 = get_field_object('field_56de0a27401cb');
+  $deptlist = $departments1 ? $departments1['choices'] : $departments2['choices'];
   $output = '';
   foreach ($deptlist as $key => $value) {
     $output .= '<li><div class="'.$key.'">'.$value.'</div></li>';
