@@ -907,7 +907,11 @@ h3 {
         }
       }
     }
-
+  }
+  .people-grid & {
+    li:nth-child(4n+5) {
+      clear: both;
+    }
   }
   &.filter {
     li {

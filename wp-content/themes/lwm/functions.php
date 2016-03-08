@@ -333,13 +333,12 @@ function display_team_departments() {
 }
 
 function display_people_grid() {
-
   // get cat list
   $output = '<ul class="category-list">
         '.display_team_departments().'
         </ul>';
   // add people list
-  $output .= display_people_list();
+  $output .= '<div class="people-grid">'.display_people_list().'</div>';
   return $output;
 }
 add_shortcode( 'people_grid', 'display_people_grid' );
