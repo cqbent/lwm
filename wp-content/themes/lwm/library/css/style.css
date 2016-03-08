@@ -1431,27 +1431,27 @@ h3 {
         display: block;
         background-color: rgba(84, 149, 52, 0.9); }
 
-  .page:not(.home) #content #inner-content {
+  .page:not(.home) #content #inner-content, .single #content #inner-content, .archive #content #inner-content {
     max-width: 1024px;
     margin-left: auto;
     margin-right: auto; }
-    .page:not(.home) #content #inner-content:after {
+    .page:not(.home) #content #inner-content:after, .single #content #inner-content:after, .archive #content #inner-content:after {
       content: "";
       display: table;
       clear: both; }
-    .page:not(.home) #content #inner-content #main.d-2of3 {
+    .page:not(.home) #content #inner-content #main.d-2of3, .single #content #inner-content #main.d-2of3, .archive #content #inner-content #main.d-2of3 {
       float: left;
       display: block;
       margin-right: 2.35765%;
       width: 74.41059%; }
-      .page:not(.home) #content #inner-content #main.d-2of3:last-child {
+      .page:not(.home) #content #inner-content #main.d-2of3:last-child, .single #content #inner-content #main.d-2of3:last-child, .archive #content #inner-content #main.d-2of3:last-child {
         margin-right: 0; }
-    .page:not(.home) #content #inner-content .sidebar.d-1of3 {
+    .page:not(.home) #content #inner-content .sidebar.d-1of3, .single #content #inner-content .sidebar.d-1of3, .archive #content #inner-content .sidebar.d-1of3 {
       float: left;
       display: block;
       margin-right: 2.35765%;
       width: 23.23176%; }
-      .page:not(.home) #content #inner-content .sidebar.d-1of3:last-child {
+      .page:not(.home) #content #inner-content .sidebar.d-1of3:last-child, .single #content #inner-content .sidebar.d-1of3:last-child, .archive #content #inner-content .sidebar.d-1of3:last-child {
         margin-right: 0; }
 
   .home #site-content #builder-section-1442853908968 .builder-text-column {

@@ -401,7 +401,6 @@ add_shortcode( 'people_carousel', 'display_people_carousel' );
 function get_news($n = -1) {
   $args = array(
       'numberposts'=>$n,
-      'category_name'=>'news',
       'order_by'=>'date',
       'order'=> 'DESC',
       'post_status'=>'publish'
@@ -415,8 +414,8 @@ function get_news($n = -1) {
       $content .= '
                 <div class="news-item">
                     <h4><a href="'.get_the_permalink($post->ID).'">'.get_the_title($post->ID).'</a></h4>
-                    <p class="excerpt">'.get_the_excerpt($post->ID).'</p>
                     <p class="date">'.get_the_date('F d, Y',$post->ID).'</p>
+                    <p class="excerpt">'.get_the_excerpt($post->ID).'</p>
                 </div>';
     }
     //$content .= '</div>';
