@@ -1298,6 +1298,7 @@ h3 {
         color: #fff;
         background-color: #549534; }
 
+/* people styles */
 .people-list {
   padding-top: 20px; }
   .people-list:after {
@@ -1345,6 +1346,12 @@ h3 {
     visibility: hidden; }
     .people-list.filter li .list-image.active {
       visibility: visible; }
+
+.single-people .entry-content .image-title {
+  float: left;
+  margin-right: 20px; }
+  .single-people .entry-content .image-title .name {
+    font-weight: bold; }
 
 @media all and (max-width: 799px) {
   .site-header, .header {

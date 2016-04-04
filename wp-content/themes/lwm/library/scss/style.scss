@@ -861,6 +861,8 @@ h3 {
 
     }
 }
+
+/* people styles */
 .people-list {
   padding-top: 20px;
   @include clearfix;
@@ -926,6 +928,17 @@ h3 {
   }
 
 
+}
+.single-people {
+    .entry-content {
+        .image-title {
+            float: left;
+            margin-right: 20px;
+            .name {
+                font-weight: bold;
+            }
+        }
+    }
 }
 
 @media all and (max-width: 799px) {
