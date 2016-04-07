@@ -19,8 +19,15 @@
 								<section class="entry-content cf" itemprop="articleBody">
 									<div class="image-title">
 										<?php
+										$img = get_field('personal_photo');
+										if ($img) {
+											$img_output = wp_get_attachment_image( $img['id'], 'medium' );
+										}
+										else {
+											$img_output = get_the_post_thumbnail(get_the_ID(), 'medium');
+										}
 										print
-											get_the_post_thumbnail(get_the_ID(), 'medium'). '
+											$img_output. '
 											<div class="name">'.get_the_title().'</div>
 											<div class="credentials">'.get_field('credentials').'</div>
 											<div class="job-title">'.get_field('job_title').'</div>
