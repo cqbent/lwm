@@ -28,6 +28,7 @@
 							</div>
 
 						</section>
+						<!--
 						<section class="section-1 builder-section">
 							<div class="flex box-container">
 								<div class="flex column col-2">
@@ -40,7 +41,7 @@
 
 										</div>
 									</div>
-									<div class="flex box featured-event"><?php print do_shortcode('[event_block]'); ?></div>
+									<div class="flex box featured-event"><?php //print do_shortcode('[event_block]'); ?></div>
 									<div class="flex box image" style="background-image:url(/wp-content/uploads/2015/08/not_whine.jpg);">
 										&nbsp;</div>
 									<div class="flex box green">
@@ -57,7 +58,7 @@
 								</div>
 							</div>
 						</section>
-
+						-->
 						<section class="section-2 wrap">
 							<div class="tagline">
 								<p>

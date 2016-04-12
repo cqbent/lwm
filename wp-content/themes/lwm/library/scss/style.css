@@ -957,7 +957,7 @@ h3 {
     .home .flexslider ul.slides li .slider-image {
       height: 450px;
       background-repeat: no-repeat;
-      background-position: center center;
+      background-position: center 40%;
       background-size: cover; }
   .home .flexslider .flex-direction-nav a {
     opacity: 1;
