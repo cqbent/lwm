@@ -75,6 +75,7 @@
 
 
 						<nav role="navigation" class="site-navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+							<i class="menu-toggle fa fa-bars" aria-hidden="true"></i>
 							<?php wp_nav_menu(array(
 									 'container' => false,                           // remove nav container
 									 'container_class' => 'menu cf',                 // class of container (should you choose to use it)

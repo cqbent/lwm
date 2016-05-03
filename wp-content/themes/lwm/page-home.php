@@ -67,7 +67,7 @@
 							</div>
 						</section>
 						<section class="section-3 carousel">
-							<?php print do_shortcode('[people_carousel]'); ?>
+							<?php //print do_shortcode('[people_carousel]'); ?>
 						</section>
 
 						<section class="section-4 news-feature wrap">

@@ -54,4 +54,15 @@ jQuery(document).ready(function($) {
         animation: 'fade',
         pauseOnHover: true,
     });
+
+    // show/hide nav on tablet/mobile
+    $('nav .menu-toggle').click(function() {
+        if ($('nav').hasClass('active')) {
+            $('nav').removeClass('active');
+        }
+        else {
+            $('nav').addClass('active');
+        }
+    });
+
 });

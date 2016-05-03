@@ -10,12 +10,6 @@
 
 							<article id="post-<?php the_ID(); ?>" <?php post_class('cf'); ?> role="article" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
 
-								<header class="article-header entry-header">
-
-									<h1 class="entry-title single-title" itemprop="headline" rel="bookmark"><?php the_title(); ?></h1>
-
-								</header> <?php // end article header ?>
-
 								<section class="entry-content cf" itemprop="articleBody">
 									<div class="image-title">
 										<?php
@@ -27,14 +21,12 @@
 											$img_output = get_the_post_thumbnail(get_the_ID(), 'medium');
 										}
 										print
-											$img_output. '
-											<div class="name">'.get_the_title().'</div>
-											<div class="credentials">'.get_field('credentials').'</div>
-											<div class="job-title">'.get_field('job_title').'</div>
-											';
+											$img_output;
 										?>
 									</div>
 									<div class="bio">
+										<h2 class="name"><?php the_title(); ?><?php get_field('credentials') ? print ', '.get_field('credentials') : ''; ?></h2>
+										<div class="job-title"><?php print get_field('job_title'); ?></div>
 										<?php
 										the_content();
 										?>
