@@ -782,6 +782,8 @@ h3 {
     max-width: 735px;
     font-family: "eb_garamond", "Times New Roman", Times, serif;
     font-style: italic; }
+    .home .site-header .site-description, .home .header .site-description {
+      display: none; }
   .site-header .site-navigation, .header .site-navigation {
     position: relative; }
     .site-header .site-navigation .menu-toggle, .header .site-navigation .menu-toggle {
@@ -940,7 +942,7 @@ h3 {
           font: 0/0 a;
           text-decoration: none; }
       .home .site-header .site-navigation, .home .header .site-navigation {
-        bottom: -30px;
+        bottom: -10px;
         padding: 0 20px;
         margin: 0;
         width: 100%;

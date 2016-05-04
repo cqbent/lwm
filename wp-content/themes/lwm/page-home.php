@@ -62,7 +62,7 @@
 						<section class="section-2 wrap">
 							<div class="tagline">
 								<p>
-									<cite>Connecting The Head And Heart Of Wealth Management we listen, we ask questions, and we focus on delivering solutions to their personal and portfolio needs.</cite>
+									<cite>Connecting The Head And Heart Of Wealth Management™. We listen, we ask questions, and we focus on delivering solutions to their personal and portfolio needs.</cite>
 								</p>
 							</div>
 						</section>

@@ -162,6 +162,9 @@ h3 {
     font-family: $serif;
     font-style: italic;
     //display: none;
+    .home & {
+      display: none;
+    }
   }
   .site-navigation {
     position: relative;
@@ -376,7 +379,7 @@ h3 {
         }
       }
       .site-navigation {
-        bottom: -30px;
+        bottom: -10px;
         padding: 0 20px;
         margin: 0;
         width: 100%;
