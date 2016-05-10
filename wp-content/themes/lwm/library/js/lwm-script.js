@@ -9,12 +9,12 @@ jQuery(document).ready(function($) {
         $('.people-list li div').removeClass('active');
         if ($(this).hasClass('active')) {
             $(this).removeClass('active');
-            $('.people-list').removeClass('filter');
+            $('.people-grid').removeClass('filter');
         }
         else {
             $('.category-list li div').removeClass('active');
             $(this).addClass('active');
-            $('.people-list').addClass('filter');
+            $('.people-grid').addClass('filter');
             $('.people-list li div.'+ac).addClass('active');
         }
         console.log(ac);

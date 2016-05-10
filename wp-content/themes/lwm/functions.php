@@ -334,11 +334,17 @@ function display_team_departments() {
 
 function display_people_grid() {
   // get cat list
-  $output = '<ul class="category-list">
-        '.display_team_departments().'
-        </ul>';
+  $output = '
+    <div class="people-grid">
+        <ul class="category-list">
+            '.display_team_departments().'
+        </ul>
+        <ul>
+          '.display_people_list().'
+        </ul>
+      </div>';
   // add people list
-  $output .= '<div class="people-grid">'.display_people_list().'</div>';
+  //$output .= ''.display_people_list().'</div>';
   return $output;
 }
 add_shortcode( 'people_grid', 'display_people_grid' );

@@ -161,10 +161,6 @@ h3 {
     max-width: 735px;
     font-family: $serif;
     font-style: italic;
-    //display: none;
-    .home & {
-      display: none;
-    }
   }
   .site-navigation {
     position: relative;
@@ -233,18 +229,21 @@ h3 {
         padding: 0;
       }
       .site-branding {
-        width: 150px;
+        width: 100px;
         height: 100px;
-        padding: 10px;
+        padding: 20px;
         background: rgba(255,255,255,.9);
         .custom-logo {
-          background-image: url("../images/lwm_logo_head.png");
+          background-image: url("../images/lwm_logo_square.svg");
           background-size: contain;
-          height: 80px;
+          height: 60px;
+          a {
+            padding-bottom: 60px;
+          }
         }
       }
       .site-description {
-        width: calc(100% - 170px);
+        width: calc(100% - 120px);
         top: 50px;
         right: 0;
         line-height: 1.25em;
@@ -687,7 +686,10 @@ h3 {
       max-width: 100%;
     }
     .site-description {
-      background: rgba(255,255,255,.6);
+      //background: rgba(255,255,255,.6);
+      @include media($desktop) {
+        display: none;
+      }
     }
 
   }
@@ -1015,6 +1017,20 @@ h3 {
     }
 
   }
+  @include media($mobile) {
+    .flexslider {
+      display: none;
+    }
+    #site-header {
+      padding-bottom: 300px;
+      background-image: url(../images/home_mobile_image.jpg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position-y: 100px;
+    }
+
+
+  }
 
 }
 .home.admin-bar {
@@ -1114,6 +1130,40 @@ h3 {
 }
 
 /* people styles */
+.people-grid {
+  li:nth-child(4n+5) {
+    clear: both;
+  }
+  &.filter {
+    .people-list {
+      li {
+        .list-image {
+          //visibility: hidden;
+          opacity: .3;
+          &.active {
+            //visibility: visible;
+            opacity: 1;
+            a {
+              display: block;
+            }
+          }
+        }
+      }
+    }
+    .category-list {
+      li {
+        div {
+          opacity: .3;
+          &.active {
+            //visibility: visible;
+            opacity: 1;
+          }
+        }
+      }
+    }
+
+  }
+}
 .people-list {
   padding-top: 20px;
   @include clearfix;
@@ -1168,25 +1218,9 @@ h3 {
     }
   }
   .people-grid & {
-    li:nth-child(4n+5) {
-      clear: both;
-    }
+
   }
-  &.filter {
-    li {
-      .list-image {
-        //visibility: hidden;
-        opacity: .3;
-        &.active {
-          //visibility: visible;
-          opacity: 1;
-          a {
-            display: block;
-          }
-        }
-      }
-    }
-  }
+
 }
 .single-people {
   .entry-content {

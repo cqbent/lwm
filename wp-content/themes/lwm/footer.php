@@ -20,7 +20,7 @@
 
 					<div class="footer-widget-container">
 						<div class="footer-logo">
-							<p><img class="alignnone wp-image-93 size-full" src="<?php print get_stylesheet_directory_uri(); ?>/library/images/lwm_logo_whitegrey.png" alt="Lexington Wealth Management"></p>
+							<p><img class="alignnone wp-image-93 size-full" src="<?php print get_stylesheet_directory_uri(); ?>/library/images/lwm_logo_white_text.svg" alt="Lexington Wealth Management"></p>
 						</div>
 						<div class="location">
 							<h4>Office</h4>
