@@ -35,6 +35,7 @@
 							<h4>Email us</h4>
 							<p>info@lexingtonwealth.com</p>
 							<p><a href="#">Sign up for our Newsletter</a></p>
+							<p><a href="/current-opportunities">Current Opportunities</a></p>
 						</div>
 						<div class="social-links">
 							<!--<div class="signup-form"> <?php //print do_shortcode('[contact-form-7 id="45" title="Newsletter Signup"]'); ?></div>-->

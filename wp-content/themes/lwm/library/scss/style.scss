@@ -432,9 +432,13 @@ h3 {
   .wrap, #inner-content {
     margin-bottom: 20px;
     padding: 0 20px;
+    #main {
+      ul, ol {
+        list-style-type: inherit;
+      }
+    }
     article {
       .page-template & .article-header {
-        display: none;
       }
       .article-header {
         margin-top: 20px;
@@ -477,6 +481,25 @@ h3 {
         }
       }
     }
+    .sidebar {
+      font-size: .9em;
+      line-height: normal;
+      h4, .widgettitle {
+        text-transform: uppercase;
+        margin-bottom: 0;
+      }
+      p {
+        margin-top: 0;
+      }
+      ul {
+        margin-top: 0;
+        padding-left: 0;
+        li {
+          margin-bottom: 5px;
+        }
+      }
+    }
+
   }
   .home & {
     #inner-content article .entry-content {
@@ -1261,14 +1284,15 @@ h3 {
   #content #inner-content {
     @include outer-container;
     #main {
-    &.d-2of3 {
-      @include span-columns(9);
-    }
+      &.d-2of3 {
+        @include span-columns(8);
+      }
     }
     .sidebar {
-    &.d-1of3 {
-      @include span-columns(3);
-    }
+      &.d-1of3 {
+        @include span-columns(3);
+        float: right;
+      }
     }
   }
 

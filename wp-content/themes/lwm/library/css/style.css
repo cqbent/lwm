@@ -981,8 +981,8 @@ h3 {
 #content .wrap, #content #inner-content {
   margin-bottom: 20px;
   padding: 0 20px; }
-  .page-template #content .wrap article .article-header, .page-template #content #inner-content article .article-header {
-    display: none; }
+  #content .wrap #main ul, #content .wrap #main ol, #content #inner-content #main ul, #content #inner-content #main ol {
+    list-style-type: inherit; }
   #content .wrap article .article-header, #content #inner-content article .article-header {
     margin-top: 20px; }
   #content .wrap article .page-title, #content #inner-content article .page-title {
@@ -1015,6 +1015,19 @@ h3 {
       height: auto;
       display: block;
       margin: 20px 0; }
+  #content .wrap .sidebar, #content #inner-content .sidebar {
+    font-size: .9em;
+    line-height: normal; }
+    #content .wrap .sidebar h4, #content .wrap .sidebar .widgettitle, #content #inner-content .sidebar h4, #content #inner-content .sidebar .widgettitle {
+      text-transform: uppercase;
+      margin-bottom: 0; }
+    #content .wrap .sidebar p, #content #inner-content .sidebar p {
+      margin-top: 0; }
+    #content .wrap .sidebar ul, #content #inner-content .sidebar ul {
+      margin-top: 0;
+      padding-left: 0; }
+      #content .wrap .sidebar ul li, #content #inner-content .sidebar ul li {
+        margin-bottom: 5px; }
 .home #content #inner-content article .entry-content {
   max-width: 100%; }
   .home #content #inner-content article .entry-content cite:before {
@@ -1578,14 +1591,15 @@ h3 {
       float: left;
       display: block;
       margin-right: 2.35765%;
-      width: 74.41059%; }
+      width: 65.88078%; }
       .page:not(.home) #content #inner-content #main.d-2of3:last-child, .single #content #inner-content #main.d-2of3:last-child, .archive #content #inner-content #main.d-2of3:last-child {
         margin-right: 0; }
     .page:not(.home) #content #inner-content .sidebar.d-1of3, .single #content #inner-content .sidebar.d-1of3, .archive #content #inner-content .sidebar.d-1of3 {
       float: left;
       display: block;
       margin-right: 2.35765%;
-      width: 23.23176%; }
+      width: 23.23176%;
+      float: right; }
       .page:not(.home) #content #inner-content .sidebar.d-1of3:last-child, .single #content #inner-content .sidebar.d-1of3:last-child, .archive #content #inner-content .sidebar.d-1of3:last-child {
         margin-right: 0; }
 
