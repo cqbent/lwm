@@ -241,10 +241,14 @@ and be up and running in seconds.
 function bones_fonts() {
   wp_enqueue_style('googleFonts', 'http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic');
 }
-
 add_action('wp_enqueue_scripts', 'bones_fonts');
 
-
+/* add pdf as media filter option */
+function modify_post_mime_types( $post_mime_types ) {
+  $post_mime_types['application/pdf'] = array( __( 'PDFs' ), __( 'Manage PDFs' ), _n_noop( 'PDF <span class="count">(%s)</span>', 'PDFs <span class="count">(%s)</span>' ) );
+  return $post_mime_types;
+}
+add_filter( 'post_mime_types', 'modify_post_mime_types' );
 
 // add typography style sheet
 function add_css_js() {
