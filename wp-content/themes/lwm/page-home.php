@@ -14,6 +14,7 @@
 					<div class="entry-content cf" itemprop="articleBody">
 						<section class="section-top case-studies columns-3 wrap">
 							<h2 class="section-title">Case Studies</h2>
+							<!--
 							<div class="col-1">
 								<h3 class>Case Study 1</h3>
 								<p>Lorem ipsum... <a href="#">read more</a></p>
@@ -26,6 +27,8 @@
 								<h3>Case Study 3</h3>
 								<p>Lorem ipsum... <a href="#">read more</a></p>
 							</div>
+							-->
+							<?php print do_shortcode('[case_studies]'); ?>
 
 						</section>
 						<!--
@@ -58,7 +61,7 @@
 								</div>
 							</div>
 						</section>
-						-->
+
 						<section class="section-2 wrap">
 							<div class="tagline">
 								<p>
@@ -69,7 +72,7 @@
 						<section class="section-3 carousel">
 							<?php //print do_shortcode('[people_carousel]'); ?>
 						</section>
-
+						-->
 						<section class="section-4 news-feature wrap">
 							<?php print do_shortcode('[news_feature]'); ?>
 						</section>

@@ -293,6 +293,7 @@ h3 {
       padding: 0 20px;
     }
   }
+
   @include media ($tablet-min) {
     .site-branding {
       width: 25%;
@@ -398,8 +399,7 @@ h3 {
             width: 25%;
             font-size: 18px;
             a {
-              padding: 1.1rem 1.6rem;
-              font-size: 20px;
+              padding: 12px 16px;
             }
             &:hover {
               a {
@@ -412,6 +412,21 @@ h3 {
             }
           }
         }
+      }
+    }
+  }
+  @include media($tablet) {
+    .home & {
+      .site-navigation .nav li a {
+
+      }
+    }
+  }
+  @include media($desktop) {
+    .home & {
+      .site-navigation .nav li a {
+        padding: 1.1rem 1.6rem;
+        font-size: 20px;
       }
     }
   }
@@ -710,8 +725,11 @@ h3 {
     }
     .site-description {
       //background: rgba(255,255,255,.6);
-      @include media($desktop) {
-        display: none;
+      @include media($tablet-min) {
+        top: 40px;
+        right: 0;
+        left: auto;
+        font-size: 1.5em;
       }
     }
 
@@ -1003,7 +1021,7 @@ h3 {
     }
     .news-list {
       margin-top: 2em;
-      text-align: center;
+      //text-align: center;
       p {
         margin-top : 0;
         line-height: normal;
@@ -1011,13 +1029,14 @@ h3 {
       h3 {
         color: $blue;
         text-transform: uppercase;
-        font-size: 15px;
+        text-align: center;
       }
       .news-item {
-        text-align: center;
+        //text-align: center;
         h4, h4 a {
           font-size: 1.2em;
           font-weight: normal;
+          margin: 0;
         }
         .excerpt {
           font-size: .8em;
@@ -1038,6 +1057,35 @@ h3 {
         }
       }
     }
+    .cs-list {
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        li {
+          width: 30%;
+          padding: 0 10px;
+          box-sizing: border-box;
+          float: left;
+          list-style: none;
+          text-align: center;
+          @include media($tablet) {
+            width: 33%;
+            &:nth-child(4) {
+              clear: both;
+            }
+          }
+          @include media($desktop) {
+            width: 20%;
+          }
+          div {
+          }
+          img {
+
+          }
+        }
+      }
+    }
 
   }
   @include media($mobile) {
@@ -1051,8 +1099,20 @@ h3 {
       background-repeat: no-repeat;
       background-position-y: 100px;
     }
-
-
+  }
+  @include media($tablet-min) {
+    .header {
+      .site-header-main {
+        .container {
+          height: 450px;
+        }
+      }
+    }
+  }
+  @include media($desktop) {
+    .site-header, .header {
+      margin: 0 calc((100% - 1024px) / 2);
+    }
   }
 
 }
@@ -1313,65 +1373,39 @@ h3 {
 
   // flexbox styling
   .flex {
-  display: -webkit-box;    /* OLD - iOS 6-, Safari 3.1-6 */
-  display: -moz-box;     /* OLD - Firefox 19- (buggy but mostly works) */
-  display: -ms-flexbox;    /* TWEENER - IE 10 */
-  display: -webkit-flex;   /* NEW - Chrome */
-  display: flex;
-  &.box-container {
-    width: 100%;
-    max-width: 100%;
-  }
-  &.column {
-    flex-flow: row wrap;
-    -webkit-box-flex: 1;    /* OLD - iOS 6-, Safari 3.1-6 */
-    -moz-box-flex: 1;     /* OLD - Firefox 19- */
-    -webkit-flex: 1;      /* Chrome */
-    -ms-flex: 1;
-    flex: 1 1 50%;
-    width: 50%;         /* For old syntax, otherwise collapses. */
-
-    &.col-1 {
-    .box {
-      flex: 1 1 100%;
+    display: -webkit-box;    /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;     /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;    /* TWEENER - IE 10 */
+    display: -webkit-flex;   /* NEW - Chrome */
+    display: flex;
+    &.box-container {
+      width: 100%;
+      max-width: 100%;
     }
-    }
-    &.col-2 {
-    .box {
+    &.column {
+      flex-flow: row wrap;
+      -webkit-box-flex: 1;    /* OLD - iOS 6-, Safari 3.1-6 */
+      -moz-box-flex: 1;     /* OLD - Firefox 19- */
+      -webkit-flex: 1;      /* Chrome */
+      -ms-flex: 1;
       flex: 1 1 50%;
-    }
-    }
-  }
-  &.box {
-    align-items: center;
-    background-color: #ccc;
-    box-sizing: border-box;
-  }
-  }
-}
+      width: 50%;         /* For old syntax, otherwise collapses. */
 
-@media all and (min-width: 960px) {
-  .site-header, .header {
-    .site-header-main {
-      .container {
-        //height: 450px;
+      &.col-1 {
+      .box {
+        flex: 1 1 100%;
+      }
+      }
+      &.col-2 {
+      .box {
+        flex: 1 1 50%;
+      }
       }
     }
-    .site-navigation {
-
-    }
-  }
-}
-
-@media all and (min-width: 1024px) {
-  .home {
-    .site-header, .header {
-      margin: 0 calc((100% - 1024px) / 2);
-      .site-header-main {
-        .container {
-          height: 450px;
-        }
-      }
+    &.box {
+      align-items: center;
+      background-color: #ccc;
+      box-sizing: border-box;
     }
   }
 }

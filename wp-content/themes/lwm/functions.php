@@ -285,7 +285,6 @@ function create_post_type_people() {
 add_action( 'init', 'create_post_type_people' );
 
 
-
 // remove footer credit
 $footer_credit = apply_filters( 'make_show_footer_credit', false );
 
@@ -436,7 +435,7 @@ function get_news($n = -1) {
 function display_featured_news_list() {
   $output = '
         <div class="news-list">
-            <h3>News + Insights</h3>
+            <h3>FYI</h3>
             ' . get_news(2) . '
         </div>
     ';
@@ -509,7 +508,6 @@ function display_slides() {
       'post_type' => 'slide',
       'posts_per_page' => 15,
       'order' => 'ASC'
-
   );
   // The Query
   $the_query = new WP_Query( $args );
@@ -544,6 +542,52 @@ function display_slides() {
   wp_reset_postdata();
 }
 
+
+function create_post_type_case_studies() {
+  register_post_type( 'case_studies',
+    array(
+      'labels' => array(
+        'name' => __( 'Case Studies' ),
+        'singular_name' => __( 'Case Study' )
+      ),
+      'public' => true,
+      'has_archive' => true,
+      'rewrite' => array('slug' => 'case-studies', 'with_front' => false),
+      'hierarchical' => true,
+      'supports' => array('title','author','custom-fields','thumbnail','editor'),
+      'taxonomies' => array('category'),
+      'not-found' => __('Nothing was found. what to do?')
+    )
+  );
+}
+add_action( 'init', 'create_post_type_case_studies' );
+
+function display_case_studies() {
+  $args = array(
+    'post_type' => 'case_studies',
+    'numberposts' => 5,
+    'order' => 'ASC',
+    'post_status'=>'publish'
+  );
+  $cs_query = new WP_Query( $args );
+  //var_dump($cs_query);
+  if ($cs_query) {
+    $content = '<div class="cs-list"><ul>';
+    while ( $cs_query->have_posts() ) {
+      $cs_query->the_post();
+      $img_thumb = get_the_post_thumbnail(get_the_ID(), 'full');
+      $cs_img = $img_thumb ? $img_thumb : '<img src="'.get_stylesheet_directory_uri().'/library/images/fpo.png" alt="fpo" />';
+      $content .= '
+        <li class="cs-item">
+            <div class="cs-image"><a href="'.get_the_permalink().'">'.$cs_img.'</a></div>
+            <div class="excerpt">'.get_field('teaser').' <a href="'.get_the_permalink().'">read more</a></div>
+        </li>';
+    }
+    $content .= '</ul></div>';
+  }
+  return $content;
+}
+add_shortcode( 'case_studies', 'display_case_studies' );
 
 
 /* DON'T DELETE THIS CLOSING TAG */ ?>
