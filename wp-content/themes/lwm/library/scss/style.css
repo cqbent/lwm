@@ -1031,6 +1031,30 @@ h3 {
       padding-left: 0; }
       #content .wrap .sidebar ul li, #content #inner-content .sidebar ul li {
         margin-bottom: 5px; }
+  #content .wrap .cs-list ul, #content #inner-content .cs-list ul {
+    margin: 0;
+    padding: 0;
+    list-style: none; }
+    #content .wrap .cs-list ul li, #content #inner-content .cs-list ul li {
+      box-sizing: border-box;
+      float: left;
+      list-style: none; }
+      #content .wrap .cs-list ul li .cs-image, #content #inner-content .cs-list ul li .cs-image {
+        display: none; }
+  .home #content .wrap ul li, .home #content #inner-content ul li {
+    width: 30%;
+    text-align: center;
+    padding: 0 11px; }
+    .home #content .wrap ul li .cs-image, .home #content #inner-content ul li .cs-image {
+      display: block; }
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
+      .home #content .wrap ul li, .home #content #inner-content ul li {
+        width: 33%; }
+        .home #content .wrap ul li:nth-child(4), .home #content #inner-content ul li:nth-child(4) {
+          clear: both; } }
+    @media screen and (min-width: 1024px) {
+      .home #content .wrap ul li, .home #content #inner-content ul li {
+        width: 20%; } }
 .home #content #inner-content article .entry-content {
   max-width: 100%; }
   .home #content #inner-content article .entry-content cite:before {
@@ -1425,25 +1449,6 @@ h3 {
     height: 1px;
     border-bottom: 1px #549534 solid;
     margin: 0 auto 20px auto; }
-.home #site-content .cs-list ul, .home #content .cs-list ul {
-  margin: 0;
-  padding: 0;
-  list-style: none; }
-  .home #site-content .cs-list ul li, .home #content .cs-list ul li {
-    width: 30%;
-    padding: 0 10px;
-    box-sizing: border-box;
-    float: left;
-    list-style: none;
-    text-align: center; }
-    @media screen and (min-width: 768px) and (max-width: 1024px) {
-      .home #site-content .cs-list ul li, .home #content .cs-list ul li {
-        width: 33%; }
-        .home #site-content .cs-list ul li:nth-child(4), .home #content .cs-list ul li:nth-child(4) {
-          clear: both; } }
-    @media screen and (min-width: 1024px) {
-      .home #site-content .cs-list ul li, .home #content .cs-list ul li {
-        width: 20%; } }
 @media screen and (max-width: 767px) {
   .home .flexslider {
     display: none; }
