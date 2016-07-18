@@ -13,7 +13,7 @@
 				<article id="post-<?php the_ID(); ?>" <?php post_class( 'cf' ); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 					<div class="entry-content cf" itemprop="articleBody">
 						<section class="section-top case-studies columns-3 wrap">
-							<h2 class="section-title">Case Studies</h2>
+							<h2 class="section-title">What's your story?</h2>
 							<!--
 							<div class="col-1">
 								<h3 class>Case Study 1</h3>
